@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+# Builds nothing (static site) — just publishes the repo to GitHub Pages.
+# Uses actions/configure-pages with enablement:true so Pages turns itself on
+# the first time this runs, no manual Settings toggle needed.
+
+on:
+  push:
+    branches:
+      - claude/weekly-meal-plan-grocery-811g9y
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages (auto-enable)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
