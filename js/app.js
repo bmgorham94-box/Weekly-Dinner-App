@@ -880,11 +880,112 @@
     toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
   }
 
-  // -------------------- Sync (share-code) — placeholder ----------------
-  // Real implementation lands in the sync commit; defined as no-ops so the
-  // Plan "Share week" button is safe if this build is loaded mid-rollout.
-  function openShareDialog() { toast("Sharing arrives in the next update."); }
-  function maybeHandleShareHash() {}
+  // -------------------- Sync (share-code between phones) ---------------
+  // Backend-free: encode the current week's plan + grocery checks (+ notes for
+  // those recipes) into a compact URL-safe code. One person generates it, the
+  // other taps the link or pastes the code. Loading never touches History.
+  function b64urlEncode(str) {
+    return btoa(unescape(encodeURIComponent(str))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  }
+  function b64urlDecode(code) {
+    const s = code.replace(/-/g, "+").replace(/_/g, "/");
+    const pad = s.length % 4 ? "=".repeat(4 - (s.length % 4)) : "";
+    return decodeURIComponent(escape(atob(s + pad)));
+  }
+  function encodeShare() {
+    if (!state.plan) return null;
+    const checkedTrue = Object.keys(state.plan.checked || {}).filter((k) => state.plan.checked[k]);
+    const doubled = Object.keys(state.plan.doubles || {}).filter((k) => state.plan.doubles[k]);
+    const ids = state.plan.dinnerIds.concat(state.plan.dessertId ? [state.plan.dessertId] : []);
+    const planNotes = {};
+    ids.forEach((id) => { if (state.notes[id]) planNotes[id] = state.notes[id]; });
+    const payload = {
+      v: 1,
+      p: { d: state.plan.dinnerIds, x: state.plan.dessertId || null, c: state.plan.createdAt || todayISO(), db: doubled },
+      ck: checkedTrue,
+      n: planNotes,
+    };
+    return b64urlEncode(JSON.stringify(payload));
+  }
+  function decodeShare(code) {
+    const o = JSON.parse(b64urlDecode(code));
+    if (!o || o.v !== 1 || !o.p || !Array.isArray(o.p.d)) throw new Error("bad share payload");
+    return o;
+  }
+  function shareURL(code) { return location.origin + location.pathname + "#share=" + code; }
+
+  function applySharedWithConfirm(payload) {
+    const pl = payload.p;
+    const n = (pl.d || []).length;
+    if (!confirm(`Load this shared week (${n} dinner${n === 1 ? "" : "s"})?\nThis replaces your current plan and grocery checks. Your saved History stays intact.`)) return false;
+    state.plan = { dinnerIds: pl.d || [], dessertId: pl.x || null, createdAt: pl.c || todayISO(), doubles: {}, checked: {} };
+    (pl.db || []).forEach((id) => { state.plan.doubles[id] = true; });
+    (payload.ck || []).forEach((k) => { state.plan.checked[k] = true; });
+    if (payload.n && typeof payload.n === "object") Object.assign(state.notes, payload.n); // merge shared notes
+    save();
+    toast("Shared week loaded.");
+    location.hash = "plan";
+    render();
+    return true;
+  }
+
+  // Returns true if the current hash was a share code (and consumes it).
+  function maybeHandleShareHash() {
+    const m = (location.hash || "").match(/^#?share=(.+)$/);
+    if (!m) return false;
+    const code = m[1];
+    // clear the hash without firing another route event, then process
+    if (window.history && history.replaceState) history.replaceState(null, "", location.pathname + location.search + "#plan");
+    else location.hash = "plan";
+    try { applySharedWithConfirm(decodeShare(code)); }
+    catch (e) { toast("That share code couldn't be read."); render(); }
+    return true;
+  }
+
+  function openShareDialog() {
+    if (!state.plan) { toast("Generate a plan first."); return; }
+    const code = encodeShare();
+    const url = shareURL(code);
+    closeShareDialog();
+    const ov = document.createElement("div");
+    ov.id = "share-overlay";
+    ov.setAttribute("style",
+      "position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:16px;" +
+      "background:color-mix(in srgb,var(--ink) 45%,transparent);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)");
+    ov.innerHTML = `
+      <div role="dialog" aria-label="Share this week" style="background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);max-width:480px;width:100%;max-height:86vh;overflow:auto;padding:18px">
+        <div class="row-between"><h3>🔗 Share this week</h3><button class="icon" id="shareClose" title="Close">✕</button></div>
+        <p class="muted small">Send this to your partner — it carries the 4 dinners, any ✕2 doubles, your grocery check-offs, and recipe notes. Their History is untouched.</p>
+        <div class="actions" style="margin-top:10px">
+          ${navigator.share ? '<button class="primary" id="shareNative">Share link…</button>' : ""}
+          <button class="ghost" id="shareCopyLink">📋 Copy link</button>
+          <button class="ghost" id="shareCopyCode">Copy code</button>
+        </div>
+        <textarea readonly rows="3" id="shareLinkBox" style="width:100%;margin-top:10px;padding:8px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface-sunken);color:var(--ink);font:inherit;font-size:12px">${esc(url)}</textarea>
+        <hr style="border:none;border-top:1px solid var(--line);margin:16px 0">
+        <h3 style="font-size:16px">Load a shared week</h3>
+        <p class="muted small">Paste a link or code your partner sent you.</p>
+        <textarea rows="3" id="loadBox" placeholder="Paste #share=… link or code" style="width:100%;margin-top:8px;padding:8px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:var(--ink);font:inherit;font-size:12px"></textarea>
+        <div class="actions"><button class="primary" id="loadShared">Load shared week</button></div>
+      </div>`;
+    document.body.appendChild(ov);
+    ov.addEventListener("click", (e) => { if (e.target === ov) closeShareDialog(); });
+    $("#shareClose").onclick = closeShareDialog;
+    const cl = $("#shareCopyLink"); if (cl) cl.onclick = () => copyText(url);
+    const cc = $("#shareCopyCode"); if (cc) cc.onclick = () => copyText(code);
+    const sn = $("#shareNative"); if (sn) sn.onclick = () => navigator.share({ title: "Our dinner plan", text: "This week's dinners + grocery list", url }).catch(() => {});
+    $("#loadShared").onclick = () => {
+      const raw = ($("#loadBox").value || "").trim();
+      if (!raw) { toast("Paste a link or code first."); return; }
+      const mm = raw.match(/share=([^\s&#]+)/);
+      const code2 = mm ? mm[1] : raw;
+      try { if (applySharedWithConfirm(decodeShare(code2))) closeShareDialog(); }
+      catch (e) { toast("That code couldn't be read."); }
+    };
+  }
+  function closeShareDialog() { const o = $("#share-overlay"); if (o) o.remove(); }
+
+  function onRoute() { if (maybeHandleShareHash()) return; render(); }
 
   window.__exportRecipes = () => download("this-week-recipes.md", recipesMarkdown());
 
@@ -927,7 +1028,7 @@
     render();
     registerSW();
   }
-  window.addEventListener("hashchange", render);
+  window.addEventListener("hashchange", onRoute);
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
