@@ -777,6 +777,60 @@ const RECIPES = [
   },
 ];
 
+// ---------------------------------------------------------------------------
+// Macro + protein + quick-win augmentation.
+// macros are PER SERVING (one person's plate, using each recipe's `servings`).
+// IMPORTANT: every value here is an ESTIMATE (recipe pages could not be fetched
+// to read published nutrition), so each recipe is flagged `estimated: true`.
+// Spot-check against the linked recipe before trusting for competition prep.
+//   c=calories, p=protein g, cb=carbs g, f=fat g, pro=primary protein, q=quick-win
+// quick-win = low-effort, <=30 min, minimal cleanup (one pan / sheet).
+// ---------------------------------------------------------------------------
+const RECIPE_MACROS = {
+  // Dinners
+  "hbh-tinga-tacos":          { c: 430, p: 34, cb: 30, f: 22, pro: "chicken",    q: true  },
+  "hbh-chipotle-enchiladas":  { c: 520, p: 36, cb: 34, f: 26, pro: "chicken",    q: false },
+  "hbh-poblano-chicken-rice": { c: 520, p: 38, cb: 45, f: 20, pro: "chicken",    q: false },
+  "bb-turkey-taco-skillet":   { c: 380, p: 30, cb: 28, f: 16, pro: "turkey",     q: false },
+  "hbh-marry-me-pasta":       { c: 660, p: 40, cb: 60, f: 28, pro: "chicken",    q: false },
+  "ouac-chicken-parm":        { c: 580, p: 45, cb: 30, f: 30, pro: "chicken",    q: false },
+  "bb-tuscan-orzo":           { c: 420, p: 14, cb: 55, f: 16, pro: "vegetarian", q: true  },
+  "hbh-greek-chicken-orzo":   { c: 500, p: 38, cb: 42, f: 20, pro: "chicken",    q: false },
+  "rte-chicken-shawarma":     { c: 520, p: 42, cb: 30, f: 24, pro: "chicken",    q: false },
+  "tmp-gyro-bowl":            { c: 540, p: 40, cb: 45, f: 22, pro: "chicken",    q: false },
+  "hbh-butter-chicken":       { c: 580, p: 36, cb: 45, f: 28, pro: "chicken",    q: true  },
+  "ck-chana-masala":          { c: 420, p: 16, cb: 65, f: 10, pro: "vegetarian", q: false },
+  "hbh-tikka-masala":         { c: 560, p: 37, cb: 45, f: 26, pro: "chicken",    q: false },
+  "hbh-general-tso":          { c: 500, p: 35, cb: 55, f: 14, pro: "chicken",    q: true  },
+  "dd-beef-broccoli":         { c: 420, p: 30, cb: 45, f: 14, pro: "beef",       q: true  },
+  "hbh-honey-buffalo-chicken":{ c: 470, p: 38, cb: 40, f: 18, pro: "chicken",    q: false },
+  "bb-turkey-chili":          { c: 300, p: 22, cb: 30, f: 9,  pro: "turkey",     q: false },
+  // Desserts
+  "hbh-blackberry-yogurt-bark":{ c: 95,  p: 6, cb: 12, f: 3, pro: "none", q: true  },
+  "hbh-fruit-popsicles":       { c: 80,  p: 3, cb: 14, f: 1, pro: "none", q: true  },
+  "hbh-no-bake-fruit-tart":    { c: 180, p: 5, cb: 22, f: 8, pro: "none", q: false },
+  "st-blueberry-froyo":        { c: 150, p: 6, cb: 24, f: 3, pro: "none", q: true  },
+  "st-triple-berry-crisp":     { c: 170, p: 3, cb: 28, f: 5, pro: "none", q: false },
+  "st-pb2-brownies":           { c: 120, p: 5, cb: 14, f: 4, pro: "none", q: false },
+};
+
+// Merge macros onto each recipe so every recipe carries per-serving macros,
+// a primary-protein tag, a quick-win flag, and an `estimated` marker.
+RECIPES.forEach((r) => {
+  const m = RECIPE_MACROS[r.id];
+  if (m) {
+    r.macros = { calories: m.c, protein: m.p, carbs: m.cb, fat: m.f };
+    r.primaryProtein = m.pro;
+    r.quickWin = !!m.q;
+    r.estimated = true; // all macro values are estimates until verified
+  } else {
+    r.macros = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+    r.primaryProtein = "none";
+    r.quickWin = false;
+    r.estimated = true;
+  }
+});
+
 // Expose for non-module usage
 if (typeof window !== "undefined") {
   window.RECIPES = RECIPES;
