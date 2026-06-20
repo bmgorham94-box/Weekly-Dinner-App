@@ -1,0 +1,25 @@
+{
+  "name": "Weekly Dinner Planner",
+  "short_name": "Dinner",
+  "description": "Plan 4 weeknight dinners, build a WinCo grocery list, and track pantry staples across weeks.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf6f0",
+  "theme_color": "#b5341f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

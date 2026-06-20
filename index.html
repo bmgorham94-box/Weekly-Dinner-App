@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#b5341f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Dinner" />
+  <title>Weekly Dinner</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/icon.svg" />
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="appbar">
+    <div class="appbar-inner">
+      <span class="logo">🍽️ <span>Weekly Dinner</span></span>
+      <button class="ghost small" id="exportRecipes" title="Download this week's recipes">⬇ Recipes</button>
+    </div>
+  </header>
+
+  <main id="app" class="container"><!-- rendered by app.js --></main>
+
+  <nav class="tabbar">
+    <button data-tab="plan">📅<span>Plan</span></button>
+    <button data-tab="grocery">🛒<span>Grocery</span></button>
+    <button data-tab="pantry">🗄<span>Pantry</span></button>
+    <button data-tab="browse">📖<span>Recipes</span></button>
+    <button data-tab="history">🕑<span>History</span></button>
+    <button data-tab="settings">⚙️<span>Prefs</span></button>
+  </nav>
+
+  <script src="./js/recipes.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
