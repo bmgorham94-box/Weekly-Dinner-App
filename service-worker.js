@@ -1,5 +1,5 @@
 /* Simple offline-first service worker for the Weekly Dinner App. */
-const CACHE = "weekly-dinner-v2";
+const CACHE = "weekly-dinner-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -11,7 +11,15 @@ const ASSETS = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  // Do NOT skipWaiting automatically — wait until the page tells us to, so we
+  // can surface a "new version available — tap to refresh" prompt instead of
+  // swapping assets out from under an open session.
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
+});
+
+// The page posts this when the user taps "Refresh" on the update banner.
+self.addEventListener("message", (e) => {
+  if (e.data && e.data.type === "SKIP_WAITING") self.skipWaiting();
 });
 
 self.addEventListener("activate", (e) => {
