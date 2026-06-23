@@ -1,0 +1,25 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Generated platform folders (regenerated via `flutter create .`)
+# Keep these ignored so the repo stays lib-only; run `flutter create .` to scaffold.
+android/
+ios/
+linux/
+macos/
+windows/
+web/
+
+# Misc
+*.log
+.DS_Store

@@ -1,0 +1,12 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    avoid_print: false
+
+analyzer:
+  errors:
+    # Keep the build runnable even with style nits during active development.
+    prefer_const_constructors: info
+    unused_import: warning

@@ -1,0 +1,46 @@
+name: the_log
+description: "The Log — a personal bodybuilding coach with an agentic AI coach and A2UI generative UI."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+  flutter: ">=3.35.7"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Storage
+  sqflite: ^2.3.3
+  path_provider: ^2.1.4
+  path: ^1.9.0
+
+  # Media
+  image_picker: ^1.1.2
+  image: ^4.2.0
+
+  # Notifications
+  flutter_local_notifications: ^17.2.3
+  timezone: ^0.9.4
+
+  # Charts + type
+  fl_chart: ^0.69.0
+  google_fonts: ^6.2.1
+
+  # Networking (SSE coach stream + USDA)
+  http: ^1.2.2
+
+  # State
+  provider: ^6.1.2
+
+  # Misc
+  intl: ^0.19.0
+  shared_preferences: ^2.3.2
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
