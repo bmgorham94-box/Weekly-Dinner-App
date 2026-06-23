@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -55,10 +53,10 @@ class _ProgressScreenState extends State<ProgressScreen> {
       }
       if (picked == null) return;
       final app = context.read<AppState>();
-      final path = await ImageService.compressAndStore(File(picked.path));
+      final bytes = await ImageService.compress(picked);
       await AppDatabase.instance.addPhoto(CheckinPhoto(
         date: app.dateKey,
-        path: path,
+        bytes: bytes,
         createdAt: DateTime.now().millisecondsSinceEpoch,
       ));
       HapticFeedback.mediumImpact();
@@ -113,7 +111,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
           child: InteractiveViewer(
             minScale: 0.8,
             maxScale: 4,
-            child: Image.file(File(photo.path), fit: BoxFit.contain),
+            child: Image.memory(photo.bytes, fit: BoxFit.contain),
           ),
         ),
       ),
@@ -163,7 +161,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
               A2SurfaceView(
                 surface: surface,
                 imageResolver: () =>
-                    (FileImage(File(previous.path)), FileImage(File(latest.path))),
+                    (MemoryImage(previous.bytes), MemoryImage(latest.bytes)),
                 onEvent: (e) async {
                   final msg = await app.handleA2Event(e);
                   if (msg != null && sheetCtx.mounted) {
@@ -180,8 +178,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
     );
 
     try {
-      final latestB64 = await ImageService.toBase64(latest.path);
-      final previousB64 = await ImageService.toBase64(previous.path);
+      final latestB64 = ImageService.toBase64(latest.bytes);
+      final previousB64 = ImageService.toBase64(previous.bytes);
       final ctx = await app.buildCoachContext();
       await app.coach.photoAnalysis(
         context: ctx,
@@ -437,7 +435,7 @@ class _PhotoGrid extends StatelessWidget {
         return GestureDetector(
           onTap: () => onTap(photo),
           onLongPress: () => onLongPress(photo),
-          child: Image.file(File(photo.path), fit: BoxFit.cover),
+          child: Image.memory(photo.bytes, fit: BoxFit.cover),
         );
       },
     );

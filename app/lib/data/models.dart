@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 /// Macro target set for a day type.
 class MacroTargets {
@@ -226,26 +227,27 @@ class WeightEntry {
       );
 }
 
-/// A check-in photo (stored locally; path on disk).
+/// A check-in photo. Compressed JPEG bytes are stored directly in the local DB
+/// so the same code path works on mobile AND web (no filesystem dependency).
 class CheckinPhoto {
   final int? id;
   final String date;
-  final String path;
+  final Uint8List bytes;
   final int createdAt;
 
-  const CheckinPhoto({this.id, required this.date, required this.path, required this.createdAt});
+  const CheckinPhoto({this.id, required this.date, required this.bytes, required this.createdAt});
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         'date': date,
-        'path': path,
+        'bytes': bytes,
         'created_at': createdAt,
       };
 
   factory CheckinPhoto.fromMap(Map<String, dynamic> m) => CheckinPhoto(
         id: m['id'] as int?,
         date: m['date'] as String,
-        path: m['path'] as String,
+        bytes: m['bytes'] is Uint8List ? m['bytes'] as Uint8List : Uint8List.fromList((m['bytes'] as List).cast<int>()),
         createdAt: (m['created_at'] as num).toInt(),
       );
 }

@@ -105,9 +105,41 @@ The Log coach server listening on 0.0.0.0:8787
   LAN:     http://192.168.1.20:8787  (point the phone here)
 ```
 
-Note that **LAN** address — you'll enter it in the app's **Setup** tab.
+Note that **LAN** address — the web app and the mobile app both talk to it.
 
-### 2. Run the Flutter app on your phone
+### 2. (Recommended for iPhone) Run as a web app — no Mac needed
+
+Native iPhone builds require a Mac + Xcode + signing. To **just open it in
+Safari on your iPhone** instead, run The Log as a Flutter web app served from
+your computer:
+
+```bash
+cd app
+./tool/setup.sh                                  # adds the web platform + web SQLite worker, runs pub get
+flutter run -d web-server --web-hostname 0.0.0.0 --web-port 8080
+```
+
+Then on your iPhone (on the **same wifi** as the computer), open Safari and go to:
+
+```
+http://<YOUR-COMPUTER-LAN-IP>:8080      # e.g. http://192.168.1.20:8080
+```
+
+Tap **Share → Add to Home Screen** to get an app-like icon (PWA). On web the app
+**auto-points the coach at the same host**, so the Setup tab usually needs no
+changes — just confirm with **Test connection**.
+
+Notes for the web build:
+- Data persists in the browser's **IndexedDB**; check-in photos are stored as
+  compressed bytes in that same local DB (no filesystem needed).
+- Daily push **notifications are mobile-only** (browsers can't schedule them
+  here) — every other feature works.
+- Coach surfaces render on web, but because browsers buffer streamed responses,
+  they appear **all at once** when ready rather than component-by-component.
+- This serves over plain **http on your LAN** (fine for personal use). A true
+  installable/offline PWA needs **https hosting** — see "Always-on" below.
+
+### 3. (Alternative) Run as a native mobile app
 
 ```bash
 cd app
@@ -127,20 +159,22 @@ flutter run            # with your phone connected via USB (or wifi debug)
 > flutter run
 > ```
 
-### 3. Point the app at your server
+### 4. Point the app at your server
 
-Open the **Setup** tab (bottom-right) and set the **Coach server URL**:
+Open the **Setup** tab and set the **Coach server URL** (the web build usually
+fills this in for you):
 
 | Running on | Use |
 |---|---|
-| **Physical phone (USB/wifi)** | the **LAN** URL the server printed, e.g. `http://192.168.1.20:8787` |
+| **iPhone via web (step 2)** | auto-set to the page host; e.g. `http://192.168.1.20:8787` |
+| Physical phone, native (USB/wifi) | the **LAN** URL the server printed |
 | Android emulator | `http://10.0.2.2:8787` |
 | iOS simulator | `http://localhost:8787` |
 
-Tap **Test connection** — you should see *Coach online ✓*. (The app and your
-computer must be on the same wifi for a physical phone.)
+Tap **Test connection** — you should see *Coach online ✓*. (Phone and computer
+must be on the same wifi.)
 
-### 4. (Optional) free USDA key
+### 5. (Optional) free USDA key
 
 "+ Add custom food" uses USDA FoodData Central. It falls back to `DEMO_KEY`
 (rate-limited). Get a free key at **https://fdc.nal.usda.gov/api-key-signup**
@@ -148,7 +182,24 @@ and put it in `server/.env` as `USDA_API_KEY=...`.
 
 ---
 
-## Permissions added by `tool/setup.sh`
+## Always-on (access without your computer running)
+
+The local setup above needs your computer on and on the same wifi. To reach it
+from anywhere, host the two pieces over **https**:
+
+- **Web app** — `cd app && flutter build web`, then deploy `app/build/web/` to
+  any static host (Netlify, Vercel, GitHub Pages, Cloudflare Pages). Over https
+  the offline/installable **PWA** (service worker) fully kicks in.
+- **Coach server** — deploy `/server` to a small host (Render, Fly.io, Railway)
+  with `ANTHROPIC_API_KEY` set, behind https. Then put that server's https URL
+  in the app's **Setup** tab (https → https avoids browser mixed-content
+  blocking). Your training data still lives only in your browser's local DB.
+
+---
+
+## Native permissions added by `tool/setup.sh`
+
+(Only needed for the native mobile build — skip for the web build.)
 
 **Android** — `android/app/src/main/AndroidManifest.xml`:
 ```xml
@@ -168,14 +219,18 @@ and put it in `server/.env` as `USDA_API_KEY=...`.
 ## Quick command reference
 
 ```bash
-# Coach server
+# Coach server (needed for both web and mobile)
 cd server && npm install && cp .env.example .env && npm run dev
 
-# App (first run)
+# iPhone via web (first run) — then open http://<computer-LAN-IP>:8080 in Safari
+cd app && ./tool/setup.sh
+flutter run -d web-server --web-hostname 0.0.0.0 --web-port 8080
+
+# Native mobile (first run)
 cd app && ./tool/setup.sh && flutter run
 
-# App (subsequent runs)
-cd app && flutter run
+# Subsequent runs (web)
+cd app && flutter run -d web-server --web-hostname 0.0.0.0 --web-port 8080
 ```
 
 All your data — meals, sets, bodyweight, photos — stays **on the device**. The

@@ -15,9 +15,21 @@ class AppState extends ChangeNotifier {
   final AppDatabase _db = AppDatabase.instance;
 
   // ----- Coach connection -----
-  String serverUrl = 'http://10.0.2.2:8787'; // Android emulator default; override in Settings
+  // On web the app is served from the dev machine, so default the coach server
+  // to that same host. On mobile, default to the Android-emulator alias.
+  // Either is overridable in Setup and persisted.
+  String serverUrl = _defaultServerUrl();
   late CoachService coach = CoachService(serverUrl);
   late UsdaService usda = UsdaService(serverUrl);
+
+  static String _defaultServerUrl() {
+    if (kIsWeb) {
+      final host = Uri.base.host;
+      if (host.isNotEmpty) return 'http://$host:8787';
+      return 'http://localhost:8787';
+    }
+    return 'http://10.0.2.2:8787';
+  }
 
   // ----- The "today" context -----
   DateTime _date = DateTime.now();

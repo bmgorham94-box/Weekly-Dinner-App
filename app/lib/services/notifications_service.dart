@@ -10,7 +10,7 @@ class NotificationsService {
   static bool _ready = false;
 
   static Future<void> init() async {
-    if (_ready) return;
+    if (kIsWeb || _ready) return; // Local notifications are unsupported on web.
     try {
       tz.initializeTimeZones();
       const android = AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -27,6 +27,7 @@ class NotificationsService {
   }
 
   static Future<void> requestPermissions() async {
+    if (kIsWeb) return;
     try {
       await _plugin
           .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
@@ -41,6 +42,7 @@ class NotificationsService {
 
   /// Schedules a daily nudge at [hour]:[minute] local time.
   static Future<void> scheduleDailyNudge({int hour = 8, int minute = 30}) async {
+    if (kIsWeb) return;
     if (!_ready) await init();
     try {
       await _plugin.zonedSchedule(

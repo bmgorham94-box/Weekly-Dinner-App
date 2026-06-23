@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -14,13 +15,15 @@ class AppDatabase {
 
   Future<Database> get db async {
     if (_db != null) return _db!;
-    final docs = await getApplicationDocumentsDirectory();
-    final path = p.join(docs.path, 'the_log.db');
-    _db = await openDatabase(
-      path,
-      version: 1,
-      onCreate: _onCreate,
-    );
+    if (kIsWeb) {
+      // Web: the ffi-web factory (set in main()) persists to IndexedDB.
+      // path_provider / dart:io are unavailable in the browser.
+      _db = await openDatabase('the_log.db', version: 1, onCreate: _onCreate);
+    } else {
+      final docs = await getApplicationDocumentsDirectory();
+      final path = p.join(docs.path, 'the_log.db');
+      _db = await openDatabase(path, version: 1, onCreate: _onCreate);
+    }
     return _db!;
   }
 
@@ -54,7 +57,7 @@ class AppDatabase {
       CREATE TABLE photos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         date TEXT NOT NULL,
-        path TEXT NOT NULL,
+        bytes BLOB NOT NULL,
         created_at INTEGER NOT NULL
       );
     ''');
