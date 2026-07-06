@@ -82,6 +82,7 @@
     history: [],    // [{ id, date, dinnerIds, dessertId }]
     notes: {},      // recipeId -> string (shared household memory)
     learning: {},   // recipeId -> number (passive preference weight)
+    custom: [],     // user-added recipes (same shape as RECIPES entries)
   };
 
   let state = load();
@@ -113,6 +114,7 @@
     s.history = Array.isArray(p.history) ? p.history : [];
     s.notes = p.notes && typeof p.notes === "object" ? p.notes : {};
     s.learning = p.learning && typeof p.learning === "object" ? p.learning : {};
+    s.custom = Array.isArray(p.custom) ? p.custom : [];
     s.plan = p.plan && typeof p.plan === "object" ? p.plan : null;
     if (s.plan) {
       s.plan.dinnerIds = Array.isArray(s.plan.dinnerIds) ? s.plan.dinnerIds : [];
@@ -129,7 +131,9 @@
   const $ = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
   const todayISO = () => new Date().toISOString().slice(0, 10);
-  const recipeById = (id) => RECIPES.find((r) => r.id === id);
+  // Built-in recipes + the user's own added recipes (state.custom).
+  const allRecipes = () => (state.custom && state.custom.length ? RECIPES.concat(state.custom) : RECIPES);
+  const recipeById = (id) => allRecipes().find((r) => r.id === id);
   const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -254,13 +258,13 @@
     const prefs = state.prefs;
     const recentIds = new Set();
     state.history.slice(0, prefs.avoidWeeks).forEach((w) => (w.dinnerIds || []).forEach((id) => recentIds.add(id)));
-    return RECIPES.filter(
+    return allRecipes().filter(
       (r) => r.cuisine !== "Dessert" && prefs.likedCuisines.includes(r.cuisine) && r.time <= prefs.maxTime && !recentIds.has(r.id)
     );
   }
   function relaxedDinners() {
     const prefs = state.prefs;
-    return RECIPES.filter((r) => r.cuisine !== "Dessert" && prefs.likedCuisines.includes(r.cuisine) && r.time <= prefs.maxTime);
+    return allRecipes().filter((r) => r.cuisine !== "Dessert" && prefs.likedCuisines.includes(r.cuisine) && r.time <= prefs.maxTime);
   }
 
   function generatePlan() {
@@ -288,7 +292,7 @@
 
     const plan = { dinnerIds: picked.map((r) => r.id), dessertId: null, createdAt: todayISO(), checked: {}, doubles: {} };
     if (prefs.includeDessert) {
-      const desserts = RECIPES.filter((r) => r.cuisine === "Dessert");
+      const desserts = allRecipes().filter((r) => r.cuisine === "Dessert");
       const recentDesserts = new Set(state.history.slice(0, prefs.avoidWeeks).map((w) => w.dessertId));
       const dpool = desserts.filter((d) => !recentDesserts.has(d.id));
       const chosen = shuffle(dpool.length ? dpool : desserts)[0];
@@ -314,7 +318,7 @@
   }
   function rerollDessert() {
     if (!state.plan) return;
-    const desserts = RECIPES.filter((r) => r.cuisine === "Dessert" && r.id !== state.plan.dessertId);
+    const desserts = allRecipes().filter((r) => r.cuisine === "Dessert" && r.id !== state.plan.dessertId);
     const chosen = shuffle(desserts)[0];
     if (chosen) { state.plan.dessertId = chosen.id; save(); }
   }
@@ -432,10 +436,11 @@
 
   function render() {
     const tab = location.hash.replace("#", "") || "plan";
-    $$(".tabbar button").forEach((b) => b.classList.toggle("active", b.dataset.tab === tab));
+    $$(".tabbar button").forEach((b) => b.classList.toggle("active", b.dataset.tab === tab || (tab === "add" && b.dataset.tab === "browse")));
     if (tab === "grocery") renderGrocery();
     else if (tab === "pantry") renderPantry();
     else if (tab === "browse") renderBrowse();
+    else if (tab === "add") renderAddRecipe();
     else if (tab === "history") renderHistory();
     else if (tab === "settings") renderSettings();
     else renderPlan();
@@ -554,7 +559,7 @@
     const swapSelect = isDessert ? "" :
       `<select class="swap" data-swap="${idx}" title="Or pick a specific meal" style="width:100%;margin-top:var(--s2)">
          <option value="">Or pick a specific meal…</option>
-         ${RECIPES.filter((x) => x.cuisine !== "Dessert").map((x) => `<option value="${x.id}">${esc(x.title)} (${esc(x.cuisine)})</option>`).join("")}
+         ${allRecipes().filter((x) => x.cuisine !== "Dessert").map((x) => `<option value="${x.id}">${esc(x.title)} (${esc(x.cuisine)})</option>`).join("")}
        </select>`;
     return `
       <article class="card">
@@ -701,12 +706,13 @@
   }
 
   function renderBrowse() {
-    const proteins = [...new Set(RECIPES.filter((r) => r.cuisine !== "Dessert").map((r) => r.primaryProtein))];
+    const lib = allRecipes();
+    const proteins = [...new Set(lib.filter((r) => r.cuisine !== "Dessert").map((r) => r.primaryProtein))];
     const chip = (active, attr, val, label) => `<button class="chip ${active ? "active" : ""}" data-${attr}="${esc(val)}">${esc(label)}</button>`;
     app.innerHTML = `
       <section>
-        <h2>All recipes</h2>
-        <p class="muted">${RECIPES.filter((r) => r.cuisine !== "Dessert").length} dinners + ${RECIPES.filter((r) => r.cuisine === "Dessert").length} lighter desserts. Every link confirmed live.</p>
+        <div class="row-between"><h2>All recipes</h2><a class="ghost small" href="#add">${ic("sparkle")} Add recipe</a></div>
+        <p class="muted">${lib.filter((r) => r.cuisine !== "Dessert").length} dinners + ${lib.filter((r) => r.cuisine === "Dessert").length} desserts${state.custom.length ? ` · ${state.custom.length} added by you` : ""}. Tap a chip to filter.</p>
         <div class="filterbar" id="fGroup">
           ${chip(browseFilters.group === "all", "g", "all", "All")}
           ${CUISINES.map((c) => chip(browseFilters.group === c, "g", c, c)).join("")}
@@ -724,7 +730,15 @@
         </div>
         <div class="cards" id="browseCards"></div>
       </section>`;
-    const repaint = () => { $("#browseCards").innerHTML = RECIPES.filter(browseMatch).map(browseCard).join("") || '<p class="muted">No recipes match those filters.</p>'; wireNoteEditors(); };
+    const repaint = () => {
+      $("#browseCards").innerHTML = lib.filter(browseMatch).map(browseCard).join("") || '<p class="muted">No recipes match those filters.</p>';
+      wireNoteEditors();
+      $$("[data-delcustom]").forEach((b) => (b.onclick = () => {
+        if (!confirm("Delete this recipe you added?")) return;
+        state.custom = state.custom.filter((r) => r.id !== b.dataset.delcustom);
+        save(); renderBrowse();
+      }));
+    };
     $$("#fGroup .chip").forEach((b) => (b.onclick = () => { browseFilters.group = b.dataset.g; renderBrowse(); }));
     $$("#fProtein .chip").forEach((b) => (b.onclick = () => { browseFilters.protein = b.dataset.p; renderBrowse(); }));
     $$("#fToggles .chip").forEach((b) => (b.onclick = () => { const k = b.dataset.t; browseFilters[k] = !browseFilters[k]; renderBrowse(); }));
@@ -733,12 +747,99 @@
   function browseCard(r) {
     return `
       <article class="card">
-        <h3>${esc(r.title)}</h3>
+        <div class="card-head"><h3>${esc(r.title)}</h3>${r.custom ? '<span class="badge">yours</span>' : ""}</div>
         <div class="badges">${metaLine(r, true)}</div>
         <p class="note">${esc(r.note || "")}</p>
         ${noteEditorHTML(r.id)}
-        <div class="card-actions"><a href="${esc(r.url)}" target="_blank" rel="noopener">${ic("external")} Recipe</a></div>
+        <div class="card-actions">
+          ${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${ic("external")} Recipe</a>` : "<span></span>"}
+          ${r.custom ? `<button class="link" data-delcustom="${esc(r.id)}">Delete</button>` : ""}
+        </div>
       </article>`;
+  }
+
+  // ------------------------- Add your own recipe ----------------------
+  const AR_INP = "padding:9px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;width:100%";
+  const CAT_OPTIONS = [
+    ["produce", "Produce"], ["meat", "Meat / seafood"], ["dairy", "Dairy & eggs"], ["herb", "Fresh herb"],
+    ["bakery", "Bakery / bread"], ["frozen", "Frozen"], ["grain", "Pasta / rice / grain"], ["canned", "Canned / jarred"],
+    ["condiment", "Condiment / sauce"], ["oil", "Oil / vinegar"], ["spice", "Spice / seasoning"], ["baking", "Baking / sweetener"], ["nuts", "Nuts / seeds"],
+  ];
+  const PROTEIN_OPTIONS = ["chicken", "beef", "turkey", "pork", "salmon", "shrimp", "vegetarian", "none"];
+  function ingredientRowHTML() {
+    return `<div class="ing-row" style="display:grid;grid-template-columns:1fr 52px 60px 1.1fr;gap:6px;margin-bottom:6px">
+      <input class="ing-name" placeholder="ingredient" style="${AR_INP}">
+      <input class="ing-qty" placeholder="qty" inputmode="decimal" style="${AR_INP}">
+      <input class="ing-unit" placeholder="unit" style="${AR_INP}">
+      <select class="ing-cat" style="${AR_INP}">${CAT_OPTIONS.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select>
+    </div>`;
+  }
+  function renderAddRecipe() {
+    app.innerHTML = `
+      <section>
+        <div class="row-between"><h2>Add a recipe</h2><a class="ghost small" href="#browse">${ic("x")} Cancel</a></div>
+        <p class="muted small">Saved on this device and used by the planner just like the built-in recipes. Only a title is required — macros are optional but help the generator hit your targets.</p>
+        <div class="field"><label>Title *</label><input id="ar-title" style="${AR_INP}"></div>
+        <div class="field"><label>Recipe link (optional)</label><input id="ar-url" placeholder="https://…" style="${AR_INP}"></div>
+        <div class="field"><label>Cuisine</label><select id="ar-cuisine" style="${AR_INP}">${CUISINES.concat(["Dessert"]).map((c) => `<option value="${c}">${c}</option>`).join("")}</select></div>
+        <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div><label>Total time (min)</label><input id="ar-time" type="number" value="40" style="${AR_INP}"></div>
+          <div><label>Servings</label><input id="ar-serv" type="number" value="4" style="${AR_INP}"></div>
+        </div>
+        <div class="field"><label>Primary protein</label><select id="ar-protein" style="${AR_INP}">${PROTEIN_OPTIONS.map((p) => `<option value="${p}">${p}</option>`).join("")}</select></div>
+        <div class="field check"><label><input type="checkbox" id="ar-spicy"> Spicy</label></div>
+        <div class="field check"><label><input type="checkbox" id="ar-quick"> Quick win (≤30 min, low cleanup)</label></div>
+        <div class="field"><label>Macros per serving (optional)</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px">
+            <input id="ar-cal" type="number" placeholder="cal" style="${AR_INP}">
+            <input id="ar-p" type="number" placeholder="P g" style="${AR_INP}">
+            <input id="ar-c" type="number" placeholder="C g" style="${AR_INP}">
+            <input id="ar-f" type="number" placeholder="F g" style="${AR_INP}">
+          </div>
+        </div>
+        <div class="field"><label>Ingredients</label>
+          <div id="ar-ings">${[0, 1, 2, 3].map(ingredientRowHTML).join("")}</div>
+          <button class="ghost small" id="ar-add-ing" type="button">${ic("sparkle")} Add ingredient</button>
+        </div>
+        <div class="field"><label>Steps (one per line)</label><textarea id="ar-steps" rows="6" placeholder="Season the chicken…&#10;Sear until golden…" style="${AR_INP}"></textarea></div>
+        <div class="field"><label>Note (optional)</label><textarea id="ar-note" rows="2" style="${AR_INP}"></textarea></div>
+        <div class="actions"><button class="primary" id="ar-save">${ic("check")} Save recipe</button></div>
+      </section>`;
+    $("#ar-add-ing").onclick = () => $("#ar-ings").insertAdjacentHTML("beforeend", ingredientRowHTML());
+    $("#ar-save").onclick = saveCustomRecipe;
+  }
+  function saveCustomRecipe() {
+    const title = $("#ar-title").value.trim();
+    if (!title) { toast("Give it a title first."); return; }
+    const ings = [];
+    $$("#ar-ings .ing-row").forEach((row) => {
+      const name = $(".ing-name", row).value.trim();
+      if (!name) return;
+      const raw = $(".ing-qty", row).value.trim();
+      const num = parseFloat(raw);
+      const qty = raw === "" ? null : (String(num) === raw ? num : raw); // keep "1/2" as text, "1.5" as number
+      ings.push({ name, qty, unit: $(".ing-unit", row).value.trim(), cat: $(".ing-cat", row).value });
+    });
+    const steps = $("#ar-steps").value.split("\n").map((s) => s.trim()).filter(Boolean);
+    const n = (id) => { const v = parseFloat($(id).value); return isNaN(v) ? 0 : v; };
+    state.custom.push({
+      id: "custom-" + Date.now().toString(36),
+      title, creator: "Added by you",
+      url: $("#ar-url").value.trim(),
+      cuisine: $("#ar-cuisine").value,
+      time: parseInt($("#ar-time").value, 10) || 40,
+      servings: parseInt($("#ar-serv").value, 10) || 4,
+      spicy: $("#ar-spicy").checked,
+      quickWin: $("#ar-quick").checked,
+      primaryProtein: $("#ar-protein").value,
+      estimated: true, custom: true,
+      note: $("#ar-note").value.trim(),
+      macros: { calories: n("#ar-cal"), protein: n("#ar-p"), carbs: n("#ar-c"), fat: n("#ar-f") },
+      ingredients: ings, steps,
+    });
+    save();
+    toast("Recipe added.");
+    location.hash = "browse";
   }
 
   function renderHistory() {

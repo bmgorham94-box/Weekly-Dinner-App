@@ -1,5 +1,5 @@
 /* Simple offline-first service worker for the Weekly Dinner App. */
-const CACHE = "weekly-dinner-v6";
+const CACHE = "weekly-dinner-v7";
 const ASSETS = [
   "./",
   "./index.html",
