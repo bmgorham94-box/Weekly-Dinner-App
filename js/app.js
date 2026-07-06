@@ -134,6 +134,32 @@
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+  // Inline SVG icon set (Lucide-style line icons) — replaces emojis for a
+  // cohesive, modern look. currentColor stroke so they inherit text color.
+  const ICONS = {
+    sparkle: '<path d="M12 3l1.9 5.3L19 10l-5.1 1.7L12 17l-1.9-5.3L5 10l5.1-1.7z"/>',
+    refresh: '<path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/>',
+    shuffle: '<path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="m4 4 5 5"/>',
+    cart: '<circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5 8.6 10.5"/>',
+    check: '<path d="M20 6 9 17l-5-5"/>',
+    external: '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+    activity: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+    copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
+    download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/>',
+    upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/>',
+    edit: '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+    x: '<path d="M18 6 6 18M6 6l12 12"/>',
+    layers: '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.9a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m6.08 9.5-3.48 1.58a1 1 0 0 0 0 1.83l8.58 3.9a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83L17.92 9.5"/>',
+    flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+    zap: '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+    alert: '<path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/>',
+    box: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/>',
+  };
+  function ic(name, cls) {
+    return `<svg class="ic ${cls || ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ""}</svg>`;
+  }
+
   function normKey(name) {
     return String(name).toLowerCase().replace(/\(.*?\)/g, "").replace(/[^a-z0-9 ]/g, "").trim();
   }
@@ -419,7 +445,7 @@
 
   function quickBadge(r) {
     return r.quickWin
-      ? `<span class="badge" style="background:color-mix(in srgb,var(--ochre) 20%,var(--surface));color:color-mix(in srgb,var(--ochre) 42%,var(--ink))">⚡ quick win</span>`
+      ? `<span class="badge" style="background:color-mix(in srgb,var(--ochre) 16%,var(--surface));color:color-mix(in srgb,var(--ochre) 55%,var(--ink))">${ic("zap", "ic-sm")} quick</span>`
       : "";
   }
   function macroBadge(r) {
@@ -432,8 +458,8 @@
     if (!state.prefs.macros.enabled) return "";
     const t = macroTargets();
     const fat = macroOf(r).fat;
-    if (fat > t.trainFat) return `<span class="badge" style="background:color-mix(in srgb,var(--brand) 16%,var(--surface));color:var(--brand)">⚠ over fat cap</span>`;
-    if (fat > t.restFat) return `<span class="badge" style="background:color-mix(in srgb,var(--brand-2) 18%,var(--surface));color:color-mix(in srgb,var(--brand-2) 45%,var(--ink))">fat high (rest day)</span>`;
+    if (fat > t.trainFat) return `<span class="badge" style="background:color-mix(in srgb,var(--brand) 16%,var(--surface));color:var(--brand)">${ic("alert", "ic-sm")} over fat cap</span>`;
+    if (fat > t.restFat) return `<span class="badge" style="background:color-mix(in srgb,var(--brand-2) 18%,var(--surface));color:color-mix(in srgb,var(--brand-2) 45%,var(--ink))">fat high</span>`;
     return "";
   }
   // A single dinner serving can't supply a whole day's remaining protein, so the
@@ -443,12 +469,12 @@
   function proteinFillBadge(r) {
     if (!state.prefs.macros.enabled) return "";
     if (macroOf(r).protein >= proteinBar())
-      return `<span class="badge" style="background:color-mix(in srgb,var(--success) 18%,var(--surface));color:var(--success)">✓ high protein</span>`;
+      return `<span class="badge" style="background:color-mix(in srgb,var(--success) 16%,var(--surface));color:var(--success)">${ic("check", "ic-sm")} high protein</span>`;
     return "";
   }
   function metaLine(r, withMacros) {
-    return `${cuisineBadge(r.cuisine)}${r.spicy ? '<span class="badge spicy">🌶 spicy</span>' : ""}` +
-      `<span class="badge time">⏱ ${r.time} min</span>${quickBadge(r)}` +
+    return `${cuisineBadge(r.cuisine)}${r.spicy ? `<span class="badge spicy">${ic("flame", "ic-sm")} spicy</span>` : ""}` +
+      `<span class="badge time">${r.time} min</span>${quickBadge(r)}` +
       `${withMacros ? macroBadge(r) + fatWarnBadge(r) + proteinFillBadge(r) : ""}` +
       `<span class="badge">${esc(r.creator)}</span>`;
   }
@@ -465,7 +491,7 @@
     const train = isTrainingToday();
     return `
       <article class="card" style="background:var(--surface-sunken)">
-        <div class="card-head"><h3>📊 Dinner macro targets</h3><span class="badge">${train ? "training day" : "rest day"}</span></div>
+        <div class="card-head"><h3>${ic("activity")} Dinner macro targets</h3><span class="badge">${train ? "training day" : "rest day"}</span></div>
         <p class="note" style="margin-top:6px">Each dinner should add about <strong>${t.remProtein}g protein</strong> (daily ${state.prefs.macros.daily.protein} − fixed ${state.prefs.macros.fixed.protein}) and stay under
         <strong>${t.restFat}g fat</strong> on rest days / <strong>${t.trainFat}g</strong> on training days. Carbs remaining ≈ ${t.remCarbs}g.</p>
         <div class="badges">
@@ -483,7 +509,7 @@
         <section class="hero">
           <h2>This week's dinners</h2>
           <p class="muted">No plan yet. Generate dinners that match your tastes and macros — high-protein, spicy-friendly, 30–60 min.</p>
-          <button class="primary big" id="genBtn">✨ Generate this week's plan</button>
+          <button class="primary big" id="genBtn">${ic("sparkle")} Generate this week's plan</button>
         </section>`;
       $("#genBtn").onclick = () => { generatePlan(); render(); };
       return;
@@ -495,16 +521,16 @@
       <section>
         <div class="row-between">
           <h2>This week's dinners</h2>
-          <button class="ghost" id="regen">↻ Regenerate</button>
+          <button class="ghost small" id="regen">${ic("refresh")} New week</button>
         </div>
-        <p class="muted">Created ${esc(state.plan.createdAt)}. Tap ↻ to swap a meal; ✕2 to cook double for leftovers.</p>
+        <p class="muted">Saved ${esc(state.plan.createdAt)} — stays here until you change it. Tap <strong>Swap this meal</strong> on any card to replace just that one.</p>
         ${macroSummaryHTML(dinners)}
         <div class="cards">${dinners.map((r, idx) => recipeCard(r, idx)).join("")}</div>
         ${dessert ? `<h3 class="section-title">Lighter dessert</h3><div class="cards">${recipeCard(dessert, -1, true)}</div>` : ""}
         <div class="actions">
-          <a class="primary" href="#grocery">🛒 View grocery list</a>
-          <button class="ghost" id="shareWeek">🔗 Share week</button>
-          <button class="ghost" id="saveWeek">✅ We shopped — save week</button>
+          <a class="primary" href="#grocery">${ic("cart")} Grocery list</a>
+          <button class="ghost" id="shareWeek">${ic("share")} Share</button>
+          <button class="ghost" id="saveWeek">${ic("check")} Save week</button>
         </div>
       </section>`;
 
@@ -520,27 +546,27 @@
 
   function recipeCard(r, idx, isDessert) {
     const doubled = !isDessert && state.plan && state.plan.doubles && state.plan.doubles[r.id];
-    const swap = isDessert
-      ? `<button class="icon" data-reroll-dessert title="Swap dessert">↻</button>`
-      : `<button class="icon" data-reroll="${idx}" title="Swap meal">↻</button>`;
-    const dbl = isDessert ? "" :
-      `<button class="ghost small" data-double="${r.id}" title="Cook a double batch for leftovers" style="${doubled ? "background:var(--brand);color:var(--on-brand);border-color:var(--brand)" : ""}">✕2 ${doubled ? "doubling" : "double"}</button>`;
+    const doubleBadge = doubled ? ` <span class="badge" style="background:var(--brand);color:var(--on-brand)">${ic("layers", "ic-sm")} 2×</span>` : "";
+    const controls = isDessert
+      ? `<button class="ghost small" data-reroll-dessert>${ic("shuffle")} Swap</button>`
+      : `<button class="ghost small" data-reroll="${idx}">${ic("shuffle")} Swap this meal</button>
+         <button class="ghost small" data-double="${r.id}" title="Cook double for leftovers"${doubled ? ' style="background:var(--brand);color:var(--on-brand)"' : ""}>${ic("layers")} ${doubled ? "Doubling" : "Double"}</button>`;
     const swapSelect = isDessert ? "" :
-      `<select class="swap" data-swap="${idx}" title="Pick a specific meal">
-         <option value="">Swap to…</option>
+      `<select class="swap" data-swap="${idx}" title="Or pick a specific meal" style="width:100%;margin-top:var(--s2)">
+         <option value="">Or pick a specific meal…</option>
          ${RECIPES.filter((x) => x.cuisine !== "Dessert").map((x) => `<option value="${x.id}">${esc(x.title)} (${esc(x.cuisine)})</option>`).join("")}
        </select>`;
     return `
       <article class="card">
-        <div class="card-head"><h3>${esc(r.title)}${doubled ? ' <span class="badge" style="background:var(--brand);color:var(--on-brand)">×2</span>' : ""}</h3>${swap}</div>
+        <div class="card-head"><h3>${esc(r.title)}${doubleBadge}</h3></div>
         <div class="badges">${metaLine(r, true)}</div>
         <p class="note">${esc(r.note || "")}</p>
         ${noteEditorHTML(r.id)}
         <div class="card-actions">
-          <a href="${esc(r.url)}" target="_blank" rel="noopener">Open recipe ↗</a>
-          ${dbl}
-          ${swapSelect}
+          <a href="${esc(r.url)}" target="_blank" rel="noopener">${ic("external")} Recipe</a>
+          ${controls}
         </div>
+        ${swapSelect}
       </article>`;
   }
 
@@ -549,7 +575,7 @@
     const val = state.notes[id] || "";
     return `
       <details class="card-note" ${val ? "open" : ""} style="margin:4px 0 2px">
-        <summary class="muted small" style="cursor:pointer">📝 Notes${val ? "" : " (add)"}</summary>
+        <summary class="muted small" style="cursor:pointer;display:flex;align-items:center;gap:6px">${ic("edit", "ic-sm")} Notes${val ? "" : " (add)"}</summary>
         <textarea data-noteid="${esc(id)}" rows="2" placeholder="Shared notes for both of you…"
           style="width:100%;margin-top:6px;padding:8px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:var(--ink);font:inherit;font-size:13px">${esc(val)}</textarea>
       </details>`;
@@ -581,15 +607,15 @@
         ${aisles.map(aisleBlock).join("") || '<p class="muted">Nothing to buy — you have it all!</p>'}
         ${haveItems.length ? `
           <details class="have">
-            <summary>🗄 Skipping ${haveItems.length} item(s) you likely already have</summary>
+            <summary style="display:flex;align-items:center;gap:8px">${ic("box")} Skipping ${haveItems.length} item(s) you likely already have</summary>
             <ul class="have-list">
               ${haveItems.map((it) => `<li>${esc(it.name)} <span class="muted">— ${esc(it.detail)}</span> <button class="link" data-need="${esc(it.key)}">need it anyway</button></li>`).join("")}
             </ul>
           </details>` : ""}
         <div class="actions">
-          <button class="ghost" id="copyGrocery">📋 Copy list</button>
-          <button class="ghost" id="dlGrocery">⬇ Download .md</button>
-          <button class="primary" id="boughtAll">✅ Mark checked as bought</button>
+          <button class="ghost" id="copyGrocery">${ic("copy")} Copy</button>
+          <button class="ghost" id="dlGrocery">${ic("download")} Download</button>
+          <button class="primary" id="boughtAll">${ic("check")} Mark as bought</button>
         </div>
       </section>`;
 
@@ -685,16 +711,16 @@
           ${chip(browseFilters.group === "all", "g", "all", "All")}
           ${CUISINES.map((c) => chip(browseFilters.group === c, "g", c, c)).join("")}
           ${chip(browseFilters.group === "Dessert", "g", "Dessert", "Dessert")}
-          ${chip(browseFilters.group === "spicy", "g", "spicy", "🌶 Spicy")}
+          ${chip(browseFilters.group === "spicy", "g", "spicy", "Spicy")}
         </div>
         <div class="filterbar" id="fProtein">
           ${chip(browseFilters.protein === "all", "p", "all", "Any protein")}
           ${proteins.map((p) => chip(browseFilters.protein === p, "p", p, p[0].toUpperCase() + p.slice(1))).join("")}
         </div>
         <div class="filterbar" id="fToggles">
-          ${chip(browseFilters.highProtein, "t", "highProtein", "💪 High protein")}
-          ${chip(browseFilters.lowFat, "t", "lowFat", "🫒 Low fat")}
-          ${chip(browseFilters.quick, "t", "quick", "⚡ Quick win")}
+          ${chip(browseFilters.highProtein, "t", "highProtein", "High protein")}
+          ${chip(browseFilters.lowFat, "t", "lowFat", "Low fat")}
+          ${chip(browseFilters.quick, "t", "quick", "Quick win")}
         </div>
         <div class="cards" id="browseCards"></div>
       </section>`;
@@ -711,7 +737,7 @@
         <div class="badges">${metaLine(r, true)}</div>
         <p class="note">${esc(r.note || "")}</p>
         ${noteEditorHTML(r.id)}
-        <a href="${esc(r.url)}" target="_blank" rel="noopener">Open recipe ↗</a>
+        <div class="card-actions"><a href="${esc(r.url)}" target="_blank" rel="noopener">${ic("external")} Recipe</a></div>
       </article>`;
   }
 
@@ -725,7 +751,7 @@
             <div class="row-between"><h3 class="aisle-title">Week of ${esc(w.date)}</h3><button class="link" data-delweek="${idx}">delete</button></div>
             <ul class="have-list">
               ${(w.dinnerIds || []).map((id) => { const r = recipeById(id); return r ? `<li>${esc(r.title)} <span class="muted">— ${esc(r.cuisine)}</span></li>` : ""; }).join("")}
-              ${w.dessertId && recipeById(w.dessertId) ? `<li>🍨 ${esc(recipeById(w.dessertId).title)}</li>` : ""}
+              ${w.dessertId && recipeById(w.dessertId) ? `<li>${esc(recipeById(w.dessertId).title)} <span class="muted">— dessert</span></li>` : ""}
             </ul>
           </div>`).join("") : '<p class="muted">No saved weeks yet. On the Plan tab, tap "We shopped — save week".</p>'}
       </section>`;
@@ -776,8 +802,8 @@
         <h2 style="margin-top:var(--s5)">Backup &amp; restore</h2>
         <p class="muted small">Your data lives only on this device. Export a backup before clearing browser data, or to move to a new phone.</p>
         <div class="actions">
-          <button class="ghost" id="exportData">⬇ Export backup (.json)</button>
-          <button class="ghost" id="importData">⬆ Restore from backup</button>
+          <button class="ghost" id="exportData">${ic("download")} Export backup</button>
+          <button class="ghost" id="importData">${ic("upload")} Restore</button>
         </div>
         <input type="file" id="importFile" accept="application/json,.json" style="display:none">
 
@@ -996,11 +1022,11 @@
       "background:color-mix(in srgb,var(--ink) 45%,transparent);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)");
     ov.innerHTML = `
       <div role="dialog" aria-label="Share this week" style="background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);max-width:480px;width:100%;max-height:86vh;overflow:auto;padding:18px">
-        <div class="row-between"><h3>🔗 Share this week</h3><button class="icon" id="shareClose" title="Close">✕</button></div>
-        <p class="muted small">Send this to your partner — it carries the 4 dinners, any ✕2 doubles, your grocery check-offs, and recipe notes. Their History is untouched.</p>
+        <div class="row-between"><h3 style="display:flex;align-items:center;gap:8px">${ic("share")} Share this week</h3><button class="icon" id="shareClose" title="Close">${ic("x")}</button></div>
+        <p class="muted small">Send this to your partner — it carries the 4 dinners, any 2× doubles, your grocery check-offs, and recipe notes. Their History is untouched.</p>
         <div class="actions" style="margin-top:10px">
-          ${navigator.share ? '<button class="primary" id="shareNative">Share link…</button>' : ""}
-          <button class="ghost" id="shareCopyLink">📋 Copy link</button>
+          ${navigator.share ? `<button class="primary" id="shareNative">${ic("share")} Share link…</button>` : ""}
+          <button class="ghost" id="shareCopyLink">${ic("copy")} Copy link</button>
           <button class="ghost" id="shareCopyCode">Copy code</button>
         </div>
         <textarea readonly rows="3" id="shareLinkBox" style="width:100%;margin-top:10px;padding:8px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface-sunken);color:var(--ink);font:inherit;font-size:12px">${esc(url)}</textarea>

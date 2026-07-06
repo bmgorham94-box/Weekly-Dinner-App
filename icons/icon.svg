@@ -1,20 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#1b2632"/>
-  <circle cx="256" cy="262" r="150" fill="#eee9df"/>
-  <circle cx="256" cy="262" r="118" fill="#c9c1b1"/>
-  <!-- fork -->
-  <g fill="#a35139">
-    <rect x="150" y="150" width="12" height="90" rx="6"/>
-    <rect x="172" y="150" width="12" height="90" rx="6"/>
-    <rect x="194" y="150" width="12" height="90" rx="6"/>
-    <rect x="166" y="232" width="24" height="150" rx="12"/>
-    <rect x="160" y="236" width="36" height="20" rx="10"/>
+  <rect width="512" height="512" rx="112" fill="#fc4c02"/>
+  <circle cx="256" cy="256" r="150" fill="#ffffff"/>
+  <circle cx="256" cy="256" r="116" fill="#ffe3d3"/>
+  <g fill="none" stroke="#242428" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M212 190v40a26 26 0 0 1-52 0v-40"/>
+    <path d="M186 230v96"/>
+    <path d="M330 190c-24 0-40 24-40 58s16 48 40 48"/>
+    <path d="M330 190v136"/>
   </g>
-  <!-- knife -->
-  <g fill="#a35139">
-    <path d="M338 150 q34 8 22 120 l-14 0 q-10 -70 -8 -120 z"/>
-    <rect x="344" y="262" width="20" height="120" rx="10"/>
-  </g>
-  <!-- amber accent -->
-  <path d="M250 250 q40 -10 50 30 q6 40 -34 50 q-30 6 -34 -22 q30 14 44 -8 q10 -30 -26 -34 z" fill="#ffb162"/>
 </svg>
