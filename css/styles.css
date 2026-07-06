@@ -228,6 +228,14 @@ button, .primary, .ghost {
   background: color-mix(in srgb, var(--sage) 22%, var(--surface));
   color: color-mix(in srgb, var(--sage) 45%, var(--ink));
 }
+/* muted "~est" modifier — marks a still-estimated (unverified) macro badge */
+.badge.est {
+  background: transparent;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  font-style: italic;
+  padding: 2px 7px;
+}
 
 select.swap {
   max-width: 56%; padding: var(--s2); border-radius: var(--r-sm);

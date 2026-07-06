@@ -181,6 +181,26 @@
     for (let i = 0; i < list.length; i++) { x -= ws[i]; if (x <= 0) return list[i]; }
     return list[list.length - 1];
   }
+  // Soft protein-variety nudge: lightly down-weight a candidate if the same
+  // primaryProtein already appears 2+ times in the week being built. A
+  // tie-breaker only — subordinate to the macro-fit weight, and never applied
+  // to vegetarian/none so meatless nights aren't penalized.
+  function proteinDiversityFactor(r, picked) {
+    const p = r.primaryProtein;
+    if (p === "none" || p === "vegetarian") return 1;
+    const same = picked.filter((x) => x.primaryProtein === p).length;
+    if (same >= 2) return 0.45;
+    if (same === 1) return 0.8;
+    return 1;
+  }
+  function pickWeightedDiverse(list, picked) {
+    if (!list.length) return null;
+    const ws = list.map((r) => weightOf(r) * proteinDiversityFactor(r, picked));
+    const sum = ws.reduce((a, b) => a + b, 0);
+    let x = Math.random() * sum;
+    for (let i = 0; i < list.length; i++) { x -= ws[i]; if (x <= 0) return list[i]; }
+    return list[list.length - 1];
+  }
 
   // --------------------- Pantry "do we need it?" -----------------------
   function pantryStatus(key, cat) {
@@ -230,12 +250,12 @@
     while (picked.length < prefs.dinnersPerWeek) {
       const cands = remaining.filter((r) => !used.has(r.cuisine));
       if (!cands.length) break;
-      const ch = pickWeighted(cands);
+      const ch = pickWeightedDiverse(cands, picked);
       picked.push(ch); used.add(ch.cuisine);
       remaining = remaining.filter((r) => r !== ch);
     }
     while (picked.length < prefs.dinnersPerWeek && remaining.length) {
-      const ch = pickWeighted(remaining);
+      const ch = pickWeightedDiverse(remaining, picked);
       picked.push(ch);
       remaining = remaining.filter((r) => r !== ch);
     }
@@ -259,7 +279,8 @@
     let pool = eligibleDinners().filter((r) => !current.has(r.id));
     if (!pool.length) pool = relaxedDinners().filter((r) => !current.has(r.id));
     if (!pool.length) return;
-    const replacement = pickWeighted(pool);
+    const others = state.plan.dinnerIds.filter((_, i) => i !== index).map(recipeById).filter(Boolean);
+    const replacement = pickWeightedDiverse(pool, others);
     state.plan.dinnerIds[index] = replacement.id;
     if (state.plan.doubles) delete state.plan.doubles[oldId];
     learnSwapAway(oldId); // passive learning: down-weight what gets swapped out
@@ -335,13 +356,33 @@
     return { aisles, haveItems };
   }
 
+  // Normalize unit strings so "cup"/"cups", "tbsp"/"tablespoon", etc. merge
+  // instead of splitting an ingredient into two lines (which double-counts).
+  const UNIT_ALIASES = {
+    cup: "cup", cups: "cup",
+    tbsp: "tbsp", tbs: "tbsp", tbl: "tbsp", tablespoon: "tbsp", tablespoons: "tbsp",
+    tsp: "tsp", teaspoon: "tsp", teaspoons: "tsp",
+    clove: "clove", cloves: "clove",
+    lb: "lb", lbs: "lb", pound: "lb", pounds: "lb",
+    oz: "oz", ounce: "oz", ounces: "oz",
+    can: "can", cans: "can", jar: "jar", jars: "jar",
+    head: "head", heads: "head", slice: "slice", slices: "slice",
+    pinch: "pinch", pinches: "pinch", sprig: "sprig", sprigs: "sprig", stalk: "stalk", stalks: "stalk",
+  };
+  function normUnit(u) {
+    if (u == null) return "";
+    const k = String(u).trim().toLowerCase();
+    return UNIT_ALIASES[k] !== undefined ? UNIT_ALIASES[k] : k; // compound units (e.g. "15 oz can") pass through unchanged
+  }
+
   function combineQty(parts) {
     const byUnit = {};
     const text = [];
     parts.forEach((p) => {
       const scale = p.scale || 1;
       if (typeof p.qty === "number" && p.unit !== undefined) {
-        byUnit[p.unit] = (byUnit[p.unit] || 0) + p.qty * scale;
+        const u = normUnit(p.unit);
+        byUnit[u] = (byUnit[u] || 0) + p.qty * scale;
       } else {
         text.push([p.qty, p.unit].filter(Boolean).join(" ") + (scale > 1 ? " (×2)" : ""));
       }
@@ -384,7 +425,8 @@
   function macroBadge(r) {
     if (!state.prefs.macros.enabled) return "";
     const m = macroOf(r);
-    return `<span class="badge macro" title="Per serving${r.estimated ? " · estimated" : ""}">${m.protein}P · ${m.carbs}C · ${m.fat}F · ${m.calories}kcal${r.estimated ? " *" : ""}</span>`;
+    return `<span class="badge macro" title="Per serving">${m.protein}P · ${m.carbs}C · ${m.fat}F · ${m.calories}kcal</span>` +
+      (r.estimated ? `<span class="badge est" title="Estimated — not verified from a source">~est</span>` : "");
   }
   function fatWarnBadge(r) {
     if (!state.prefs.macros.enabled) return "";
@@ -845,7 +887,7 @@
     const m = macroOf(r);
     let md = `## ${n}. ${r.title}\n`;
     md += `- **Creator:** ${r.creator}\n- **Cuisine:** ${r.cuisine}${r.spicy ? " 🌶" : ""}\n- **Total time:** ${r.time} min · Serves ${r.servings}\n`;
-    md += `- **Macros/serving (est):** ${m.protein}g P · ${m.carbs}g C · ${m.fat}g F · ${m.calories} kcal\n`;
+    md += `- **Macros/serving (${r.estimated ? "estimated" : "verified"}):** ${m.protein}g P · ${m.carbs}g C · ${m.fat}g F · ${m.calories} kcal\n`;
     md += `- **Link:** ${r.url}\n\n**Ingredients**\n`;
     r.ingredients.forEach((ing) => (md += `- ${[ing.qty, ing.unit, ing.name].filter((x) => x !== "" && x != null).join(" ")}\n`));
     md += `\n**Instructions**\n`;
