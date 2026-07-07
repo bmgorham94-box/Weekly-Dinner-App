@@ -1985,6 +1985,1297 @@ const RECIPES = [
       "Meanwhile steam rice and sauté green beans in olive oil. Parsley over the pork.",
     ],
   },
+  // ---------- MEXICAN ----------
+  {
+    id: "rte-carnitas",
+    title: "Carnitas (Slow Cooker Pulled Pork)",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/pork-carnitas-mexican-slow-cooker-pulled-pork/",
+    cuisine: "Mexican",
+    time: 360,
+    servings: 10,
+    spicy: false,
+    healthy: true,
+    note: "Weekend project. Nagi's most famous recipe — juicy inside, golden-crisp edges. Makes a mountain; the quesadillas below are built for the leftovers. Published per-taco macros: 160 cal / 17.5P.",
+    ingredients: [
+      i("pork shoulder (boneless)", 4, "lb", "meat"),
+      i("onion", 1, "", "produce"),
+      i("jalapeño", 1, "", "produce"),
+      i("garlic cloves", 4, "", "produce"),
+      i("orange juice", 0.75, "cup", "produce"),
+      i("dried oregano", 1, "tbsp", "spice"),
+      i("ground cumin", 1, "tbsp", "spice"),
+      i("salt", 2.5, "tsp", "spice"),
+      i("black pepper", 1, "tsp", "spice"),
+      i("small corn tortillas", 12, "", "bakery"),
+      i("cilantro", 1, "bunch", "herb"),
+      i("limes", 2, "", "produce")
+    ],
+    steps: [
+      "Rinse and dry pork, rub all over with salt, pepper, oregano, and cumin.",
+      "Place in slow cooker with onion, jalapeño, garlic, and orange juice. Cook on low 10 hr or high 6 hr until fork-tender.",
+      "Shred the pork; skim fat from the juices and reserve them.",
+      "Crisp shreds in a hot skillet (or under the broiler), drizzling reserved juices over as they caramelize.",
+      "Serve in warm tortillas with cilantro, diced onion, and lime. Stash 1.5 cups for the quesadillas."
+    ]
+  },
+  {
+    id: "tmp-fish-tacos",
+    title: "Cajun Fish Tacos",
+    creator: "The Modern Proper",
+    url: "https://themodernproper.com/spicy-fish-tacos",
+    cuisine: "Mexican",
+    time: 35,
+    servings: 4,
+    spicy: true,
+    healthy: true,
+    note: "Panko-crusted and BAKED, not fried — crunchy fish, cool crema slaw. First fish tacos in the library and a lean way to get the 'fried' fix on a cut.",
+    ingredients: [
+      i("firm white fish (cod or tilapia)", 1.5, "lb", "meat"),
+      i("panko breadcrumbs", 1, "cup", "bakery"),
+      i("cajun or creole seasoning", 2, "tbsp", "spice"),
+      i("egg", 1, "", "dairy"),
+      i("flour tortillas", 8, "", "bakery"),
+      i("shredded cabbage", 3, "cup", "produce"),
+      i("mayonnaise", 0.33, "cup", "condiment"),
+      i("hot sauce", 1, "tbsp", "condiment"),
+      i("limes", 2, "", "produce"),
+      i("avocado", 1, "", "produce"),
+      i("cilantro", 0.5, "bunch", "herb")
+    ],
+    steps: [
+      "Heat oven to 425°F. Toss panko with half the cajun seasoning; season fish strips with the rest.",
+      "Dip fish in beaten egg, press into panko, and arrange on a rack over a sheet pan.",
+      "Bake 10–12 min until the crust is golden and fish flakes.",
+      "Whisk mayo, hot sauce, and juice of 1 lime; toss half with the cabbage for slaw, save the rest as crema.",
+      "Load tortillas with slaw, fish, avocado, cilantro, crema, and a lime squeeze."
+    ]
+  },
+  {
+    id: "ck-black-bean-soup",
+    title: "Spicy Vegan Black Bean Soup",
+    creator: "Cookie and Kate",
+    url: "https://cookieandkate.com/spicy-vegan-black-bean-soup/",
+    cuisine: "Mexican",
+    time: 55,
+    servings: 6,
+    spicy: true,
+    healthy: true,
+    note: "Pantry-canned beans, one pot, big smoky-chipotle flavor. Blend a third of it for body and it eats like it simmered all day.",
+    ingredients: [
+      i("olive oil", 2, "tbsp", "oil"),
+      i("yellow onion", 1, "", "produce"),
+      i("carrots", 2, "", "produce"),
+      i("celery ribs", 2, "", "produce"),
+      i("garlic cloves", 4, "", "produce"),
+      i("ground cumin", 2, "tsp", "spice"),
+      i("chipotle in adobo (minced)", 1.5, "tbsp", "canned"),
+      i("black beans (15 oz cans)", 4, "can", "canned"),
+      i("vegetable broth", 4, "cup", "canned"),
+      i("lime", 1, "", "produce"),
+      i("cilantro", 0.5, "bunch", "herb")
+    ],
+    steps: [
+      "Sauté onion, carrot, and celery in oil until soft, about 8 min.",
+      "Stir in garlic, cumin, and chipotle; cook 1 min until fragrant.",
+      "Add beans (with liquid) and broth. Simmer 25 min, uncovered.",
+      "Blend 2–3 cups of the soup and stir back in for a creamy base.",
+      "Finish with lime juice and cilantro. Top with avocado or a dollop of yogurt if you have it."
+    ]
+  },
+  {
+    id: "rte-carnitas-quesadillas",
+    title: "Carnitas Quesadillas with Caramelized Onions",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/pulled-pork-carnitas-quesadillas-caramelized-onions/",
+    cuisine: "Mexican",
+    time: 20,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "The official second life for your carnitas batch — sweet caramelized onions + crispy pork + molten cheese. Plan it 2–3 days after carnitas night.",
+    ingredients: [
+      i("cooked carnitas (shredded)", 1.5, "cup", "meat"),
+      i("large flour tortillas", 4, "", "bakery"),
+      i("shredded mozzarella", 2, "cup", "dairy"),
+      i("yellow onion", 1, "", "produce"),
+      i("butter", 1, "tbsp", "dairy"),
+      i("black beans (drained)", 1, "can", "canned"),
+      i("frozen corn", 0.75, "cup", "frozen"),
+      i("green onions", 3, "", "produce"),
+      i("sour cream", 0.5, "cup", "condiment"),
+      i("salsa", 0.75, "cup", "condiment")
+    ],
+    steps: [
+      "Slowly caramelize the onion in butter over medium-low, 10–12 min.",
+      "Layer half of each tortilla with cheese, carnitas, beans, corn, caramelized onion, and green onion; fold over.",
+      "Toast in a dry skillet 2–3 min per side until golden and molten.",
+      "Rest 1 min, cut into wedges, and serve with sour cream and salsa."
+    ]
+  },
+
+  // ---------- ITALIAN ----------
+  {
+    id: "dd-shrimp-pasta",
+    title: "Garlic Butter Shrimp Pasta",
+    creator: "Damn Delicious",
+    url: "https://damndelicious.net/2015/03/13/garlic-butter-shrimp-pasta/",
+    cuisine: "Italian",
+    time: 25,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "Fettuccine, garlicky shrimp, wilted arugula, and parm — a 25-minute 'fancy' dinner that's mostly pantry.",
+    ingredients: [
+      i("fettuccine", 8, "oz", "grain"),
+      i("shrimp (peeled, deveined)", 1, "lb", "meat"),
+      i("butter", 3, "tbsp", "dairy"),
+      i("garlic cloves", 4, "", "produce"),
+      i("red pepper flakes", 0.25, "tsp", "spice"),
+      i("baby arugula", 3, "cup", "produce"),
+      i("grated parmesan", 0.33, "cup", "dairy"),
+      i("lemon", 1, "", "produce"),
+      i("parsley", 0.25, "cup", "herb")
+    ],
+    steps: [
+      "Cook fettuccine; reserve 1/2 cup pasta water.",
+      "Melt butter, add garlic and pepper flakes, and sauté shrimp 2–3 min per side until pink.",
+      "Toss in pasta, arugula, parmesan, and a splash of pasta water until glossy and the greens wilt.",
+      "Finish with lemon juice and parsley."
+    ]
+  },
+  {
+    id: "hbh-caprese-pasta-salad",
+    title: "Caprese Chicken Pasta Salad",
+    creator: "Half Baked Harvest",
+    url: "https://www.halfbakedharvest.com/caprese-chicken-pasta-salad/",
+    cuisine: "Italian",
+    time: 35,
+    servings: 6,
+    spicy: false,
+    healthy: true,
+    note: "Balsamic grilled chicken + tomatoes + fresh mozz + basil over pasta, served warm or cold. Built for Portland summer evenings and next-day lunches.",
+    ingredients: [
+      i("short pasta (fusilli or penne)", 12, "oz", "grain"),
+      i("chicken breasts", 1, "lb", "meat"),
+      i("balsamic vinegar", 0.25, "cup", "condiment"),
+      i("olive oil", 0.25, "cup", "oil"),
+      i("garlic cloves", 2, "", "produce"),
+      i("cherry tomatoes", 2, "cup", "produce"),
+      i("fresh mozzarella balls", 8, "oz", "dairy"),
+      i("fresh basil", 1, "cup", "herb"),
+      i("baby spinach", 2, "cup", "produce"),
+      i("salt and pepper", 1, "to taste", "spice")
+    ],
+    steps: [
+      "Marinate chicken in half the balsamic, half the oil, garlic, salt, and pepper for 15 min while pasta cooks.",
+      "Grill or sear chicken 5–6 min per side; rest, then slice.",
+      "Toss warm pasta with remaining oil and balsamic, tomatoes, spinach, and torn mozzarella.",
+      "Fold in chicken and basil; season boldly. Serve warm or chilled."
+    ]
+  },
+  {
+    id: "ck-margherita-pizza",
+    title: "Margherita Pizza",
+    creator: "Cookie and Kate",
+    url: "https://cookieandkate.com/margherita-pizza-recipe/",
+    cuisine: "Italian",
+    time: 45,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "First pizza in the library — no-cook San Marzano sauce, fresh mozz, basil. Grab 1 lb of store dough and it's a legit Friday pizza night.",
+    ingredients: [
+      i("pizza dough", 1, "lb", "bakery"),
+      i("crushed San Marzano tomatoes", 0.75, "cup", "canned"),
+      i("garlic clove", 1, "", "produce"),
+      i("olive oil", 1, "tbsp", "oil"),
+      i("fresh mozzarella", 6, "oz", "dairy"),
+      i("fresh basil", 0.5, "cup", "herb"),
+      i("salt", 0.25, "tsp", "spice"),
+      i("flour (for shaping)", 2, "tbsp", "baking")
+    ],
+    steps: [
+      "Heat oven to 500°F with a pizza stone or inverted sheet pan inside for 30 min.",
+      "Stir crushed tomatoes with grated garlic, oil, and salt — that's the sauce, no cooking.",
+      "Divide dough in two; stretch each to a thin 11-inch round on floured parchment.",
+      "Top with a light layer of sauce and torn mozzarella. Bake 10–12 min until blistered.",
+      "Finish with basil and a drizzle of olive oil; repeat with round two."
+    ]
+  },
+  {
+    id: "bb-vodka-rigatoni",
+    title: "Bruschetta Rigatoni alla Vodka",
+    creator: "Budget Bytes",
+    url: "https://www.budgetbytes.com/bruschetta-rigatoni-alla-vodka/",
+    cuisine: "Italian",
+    time: 40,
+    servings: 8,
+    spicy: false,
+    healthy: false,
+    note: "Jarred vodka sauce + ground chicken + fresh tomatoes and spinach = huge pot, about $2 a serving. Reheats beautifully all week.",
+    ingredients: [
+      i("rigatoni", 16, "oz", "grain"),
+      i("ground chicken", 16, "oz", "meat"),
+      i("vodka pasta sauce", 2.5, "cup", "canned"),
+      i("beefsteak tomatoes", 2, "", "produce"),
+      i("garlic cloves", 3, "", "produce"),
+      i("baby spinach", 3, "cup", "produce"),
+      i("garbanzo beans (drained)", 1, "can", "canned"),
+      i("olive oil", 2, "tbsp", "oil"),
+      i("red pepper flakes", 0.25, "tsp", "spice"),
+      i("grated parmesan", 0.5, "cup", "dairy"),
+      i("fresh basil", 0.5, "cup", "herb")
+    ],
+    steps: [
+      "Cook rigatoni; reserve a cup of pasta water.",
+      "Brown ground chicken in oil with garlic and pepper flakes.",
+      "Add diced tomatoes and cook 3–4 min until saucy, then stir in vodka sauce and garbanzos; simmer 5 min.",
+      "Fold in pasta, spinach, and splashes of pasta water until silky.",
+      "Top with parmesan and basil."
+    ]
+  },
+  {
+    id: "st-chicken-piccata",
+    title: "Chicken Piccata",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/chicken-piccata/",
+    cuisine: "Italian",
+    time: 25,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Crispy breaded cutlets in a lemon-wine-caper butter sauce, lightened the Skinnytaste way. Angel hair added to make it a full plate.",
+    ingredients: [
+      i("chicken breasts (halved into cutlets)", 1.25, "lb", "meat"),
+      i("egg whites", 2, "", "dairy"),
+      i("seasoned breadcrumbs", 0.5, "cup", "bakery"),
+      i("butter", 2, "tbsp", "dairy"),
+      i("olive oil", 1, "tbsp", "oil"),
+      i("lemons", 2, "", "produce"),
+      i("dry white wine", 0.25, "cup", "condiment"),
+      i("capers", 2, "tbsp", "condiment"),
+      i("angel hair pasta", 8, "oz", "grain"),
+      i("parsley", 0.25, "cup", "herb")
+    ],
+    steps: [
+      "Pound cutlets thin; dip in egg whites, then breadcrumbs.",
+      "Sear in oil 3–4 min per side until golden and cooked through; set aside.",
+      "Deglaze the pan with wine and lemon juice, swirl in butter and capers for 2 min.",
+      "Toss cooked angel hair through half the sauce; plate cutlets on top and spoon over the rest.",
+      "Shower with parsley and extra lemon."
+    ]
+  },
+
+  // ---------- MEDITERRANEAN ----------
+  {
+    id: "ck-falafel",
+    title: "Crispy Baked Falafel",
+    creator: "Cookie and Kate",
+    url: "https://cookieandkate.com/crispy-falafel-recipe/",
+    cuisine: "Mediterranean",
+    time: 45,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Baked, not fried, and it actually works — golden outside, herb-green inside. Uses DRIED chickpeas (start soaking at lunch). They freeze great.",
+    ingredients: [
+      i("dried chickpeas", 1, "cup", "canned"),
+      i("red onion", 0.5, "cup", "produce"),
+      i("fresh parsley", 0.5, "cup", "herb"),
+      i("fresh cilantro", 0.5, "cup", "herb"),
+      i("garlic cloves", 4, "", "produce"),
+      i("ground cumin", 0.5, "tsp", "spice"),
+      i("cinnamon", 0.25, "tsp", "spice"),
+      i("salt", 1, "tsp", "spice"),
+      i("olive oil", 0.33, "cup", "oil"),
+      i("pitas", 4, "", "bakery"),
+      i("tahini", 0.25, "cup", "condiment"),
+      i("lemon", 1, "", "produce"),
+      i("cucumber", 1, "", "produce"),
+      i("tomato", 1, "", "produce")
+    ],
+    steps: [
+      "Soak dried chickpeas 4–24 hr (do NOT cook them); drain well.",
+      "Pulse chickpeas with onion, herbs, garlic, spices, and 1 tbsp oil until it holds together but stays coarse.",
+      "Shape 12 patties, brush both sides generously with oil, and bake at 375°F for 25–30 min, flipping halfway.",
+      "Whisk tahini with lemon juice and water until pourable.",
+      "Stuff pitas with falafel, cucumber, tomato, and tahini sauce."
+    ]
+  },
+  {
+    id: "bb-shakshuka",
+    title: "Smoky White Bean Shakshuka",
+    creator: "Budget Bytes",
+    url: "https://www.budgetbytes.com/smoky-white-bean-shakshuka/",
+    cuisine: "Mediterranean",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Eggs poached in smoky tomato-white bean sauce, one skillet, mostly pantry. Breakfast-for-dinner energy that still hits protein.",
+    ingredients: [
+      i("olive oil", 2, "tbsp", "oil"),
+      i("yellow onion", 1, "", "produce"),
+      i("garlic cloves", 2, "", "produce"),
+      i("smoked paprika", 1, "tsp", "spice"),
+      i("ground cumin", 1, "tsp", "spice"),
+      i("dried oregano", 0.5, "tsp", "spice"),
+      i("red pepper flakes", 0.25, "tsp", "spice"),
+      i("whole peeled tomatoes (28 oz)", 1, "can", "canned"),
+      i("cannellini beans (drained)", 1, "can", "canned"),
+      i("eggs", 6, "", "dairy"),
+      i("fresh parsley", 0.25, "cup", "herb"),
+      i("crusty bread", 1, "loaf", "bakery")
+    ],
+    steps: [
+      "Sauté onion in oil until soft; add garlic and all the spices for 1 min.",
+      "Pour in tomatoes, crushing them by hand; simmer 10 min until thickened.",
+      "Stir in white beans, then nestle wells and crack in the eggs.",
+      "Cover and poach 6–8 min until whites are set, yolks jammy.",
+      "Scatter parsley and serve straight from the skillet with bread for dragging."
+    ]
+  },
+  {
+    id: "rte-greek-lemon-rice",
+    title: "One Pot Greek Chicken and Lemon Rice",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/one-pot-greek-chicken-lemon-rice/",
+    cuisine: "Mediterranean",
+    time: 60,
+    servings: 5,
+    spicy: false,
+    healthy: true,
+    note: "Nagi's 'best chicken and rice ever' — thighs marinated in lemon-oregano-garlic, then baked right on top of the rice so it drinks the drippings.",
+    ingredients: [
+      i("chicken thighs (bone-in, skin-on)", 5, "", "meat"),
+      i("long grain rice", 1, "cup", "grain"),
+      i("chicken broth", 1.5, "cup", "canned"),
+      i("lemons", 2, "", "produce"),
+      i("dried oregano", 2, "tsp", "spice"),
+      i("garlic cloves", 4, "", "produce"),
+      i("onion", 1, "", "produce"),
+      i("olive oil", 2, "tbsp", "oil"),
+      i("fresh oregano or parsley", 0.25, "cup", "herb"),
+      i("crumbled feta", 0.5, "cup", "dairy")
+    ],
+    steps: [
+      "Marinate thighs in lemon juice, zest, oregano, garlic, and oil (30 min if you can).",
+      "Sear thighs skin-side down in an oven-proof pot until deep golden; remove.",
+      "Sauté onion in the drippings, stir in rice, broth, and remaining marinade.",
+      "Return chicken on top, cover, and bake at 350°F about 35 min until rice is tender and chicken cooked.",
+      "Rest 10 min, fluff, and finish with herbs, feta, and lemon wedges."
+    ]
+  },
+  {
+    id: "hbh-harissa-chicken",
+    title: "Sheet Pan Harissa Chicken with Chickpeas and Sweet Potatoes",
+    creator: "Half Baked Harvest",
+    url: "https://www.halfbakedharvest.com/sheet-pan-harissa-chicken-with-chickpeas-and-sweet-potatoes/",
+    cuisine: "Mediterranean",
+    time: 55,
+    servings: 6,
+    spicy: true,
+    healthy: true,
+    note: "One pan: harissa-honey chicken, crispy chickpeas, caramelized sweet potato, cooled off with minty yogurt and feta. Big cut-friendly plate.",
+    ingredients: [
+      i("chicken breasts or thighs", 1.5, "lb", "meat"),
+      i("chickpeas (drained)", 1, "can", "canned"),
+      i("sweet potatoes", 2, "", "produce"),
+      i("sweet onion", 1, "", "produce"),
+      i("lemons", 2, "", "produce"),
+      i("green olives", 0.33, "cup", "condiment"),
+      i("harissa seasoning", 2, "tbsp", "spice"),
+      i("honey", 1, "tbsp", "condiment"),
+      i("olive oil", 0.25, "cup", "oil"),
+      i("greek yogurt", 0.5, "cup", "dairy"),
+      i("fresh mint", 0.25, "cup", "herb"),
+      i("crumbled feta", 0.5, "cup", "dairy")
+    ],
+    steps: [
+      "Heat oven to 425°F. Toss chicken with harissa, honey, half the oil, and lemon juice.",
+      "Toss sweet potatoes, chickpeas, and onion with remaining oil on a sheet pan; roast 15 min.",
+      "Add chicken and lemon halves to the pan; roast 20–25 min more until charred at the edges.",
+      "Stir yogurt with chopped mint and a pinch of salt.",
+      "Serve everything over the minty yogurt, topped with olives and feta."
+    ]
+  },
+  {
+    id: "rte-portuguese-chicken-rice",
+    title: "Portuguese Chicken and Rice (One Pot)",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/portuguese-chicken-and-rice-one-pot-recipe/",
+    cuisine: "Mediterranean",
+    time: 50,
+    servings: 5,
+    spicy: true,
+    healthy: true,
+    note: "Nando's-style peri-peri flavors — smoky paprika-cayenne chicken baked over golden rice. Same one-pot magic as the Greek version, totally different flavor lane.",
+    ingredients: [
+      i("chicken thighs (bone-in)", 5, "", "meat"),
+      i("long grain rice", 1.25, "cup", "grain"),
+      i("chicken broth", 1.75, "cup", "canned"),
+      i("red onion", 1, "", "produce"),
+      i("garlic cloves", 3, "", "produce"),
+      i("smoked paprika", 2, "tsp", "spice"),
+      i("cayenne pepper", 0.5, "tsp", "spice"),
+      i("dried oregano", 1, "tsp", "spice"),
+      i("lemon", 1, "", "produce"),
+      i("olive oil", 2, "tbsp", "oil"),
+      i("frozen peas", 1, "cup", "frozen"),
+      i("parsley", 0.25, "cup", "herb")
+    ],
+    steps: [
+      "Rub chicken with paprika, cayenne, oregano, garlic, lemon juice, and half the oil.",
+      "Sear chicken until golden; set aside. Soften onion in the same pot.",
+      "Stir in rice and broth, scraping up the spiced fond; lay chicken on top.",
+      "Cover and bake at 350°F for 35 min; stir peas in for the last 5.",
+      "Rest, fluff, and shower with parsley and extra lemon."
+    ]
+  },
+
+  // ---------- INDIAN ----------
+  {
+    id: "hbh-coconut-salmon",
+    title: "Garlic Butter Coconut Salmon",
+    creator: "Half Baked Harvest",
+    url: "https://www.halfbakedharvest.com/garlic-butter-coconut-salmon/",
+    cuisine: "Indian",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "One pan: salmon seared in garlic butter, then simmered in a golden curry-coconut sauce over jasmine rice. Salmon night, Indian lane.",
+    ingredients: [
+      i("salmon fillets", 1.5, "lb", "meat"),
+      i("butter", 3, "tbsp", "dairy"),
+      i("garlic cloves", 4, "", "produce"),
+      i("coconut milk (full fat)", 1, "can", "canned"),
+      i("curry powder", 2, "tsp", "spice"),
+      i("turmeric", 0.5, "tsp", "spice"),
+      i("honey", 1, "tbsp", "condiment"),
+      i("lime", 1, "", "produce"),
+      i("baby spinach", 2, "cup", "produce"),
+      i("jasmine rice", 1, "cup", "grain"),
+      i("cilantro", 0.5, "bunch", "herb")
+    ],
+    steps: [
+      "Start rice. Season salmon and sear in garlic butter 3 min per side; set aside.",
+      "In the same pan, bloom curry powder and turmeric 30 seconds.",
+      "Pour in coconut milk and honey; simmer 5 min, then wilt in spinach.",
+      "Return salmon to the sauce and spoon it over until just cooked through.",
+      "Serve over rice with lime and cilantro."
+    ]
+  },
+  {
+    id: "rte-tandoori",
+    title: "Oven Baked Tandoori Chicken",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/oven-baked-tandoori-chicken/",
+    cuisine: "Indian",
+    time: 50,
+    servings: 5,
+    spicy: true,
+    healthy: true,
+    note: "For everyone without a tandoor in the kitchen — yogurt-spice marinade, blazing oven, charred edges. Marinate 12–24 hr for the real thing.",
+    ingredients: [
+      i("chicken thighs (bone-in or boneless)", 2, "lb", "meat"),
+      i("greek yogurt", 0.75, "cup", "dairy"),
+      i("lemon", 1, "", "produce"),
+      i("garlic cloves", 4, "", "produce"),
+      i("fresh ginger", 1, "tbsp", "produce"),
+      i("garam masala", 2, "tsp", "spice"),
+      i("ground cumin", 1, "tsp", "spice"),
+      i("kashmiri chili powder or paprika", 2, "tsp", "spice"),
+      i("turmeric", 0.5, "tsp", "spice"),
+      i("basmati rice", 1, "cup", "grain"),
+      i("cucumber", 1, "", "produce"),
+      i("cilantro", 0.5, "bunch", "herb")
+    ],
+    steps: [
+      "Whisk yogurt with lemon, garlic, ginger, and all the spices; coat chicken and marinate 12–24 hr (3 hr minimum).",
+      "Heat oven to 425°F. Arrange chicken on a rack over a lined tray.",
+      "Bake 25–30 min until charred at the edges and cooked through (broil the last 2 min).",
+      "Meanwhile cook basmati and stir grated cucumber into extra yogurt for a quick raita.",
+      "Serve chicken over rice with raita and cilantro."
+    ]
+  },
+  {
+    id: "rte-biryani",
+    title: "Chicken Biryani",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/biryani/",
+    cuisine: "Indian",
+    time: 80,
+    servings: 8,
+    spicy: true,
+    healthy: false,
+    note: "Weekend project — the real layered deal: spiced chicken below, saffron rice above, steamed together. Worth every minute; leftovers might be even better.",
+    ingredients: [
+      i("chicken thighs (boneless)", 1.5, "lb", "meat"),
+      i("basmati rice", 2, "cup", "grain"),
+      i("greek yogurt", 0.5, "cup", "dairy"),
+      i("onions", 2, "", "produce"),
+      i("garlic cloves", 4, "", "produce"),
+      i("fresh ginger", 1.5, "tbsp", "produce"),
+      i("garam masala", 2, "tsp", "spice"),
+      i("turmeric", 1, "tsp", "spice"),
+      i("ground cumin", 1, "tsp", "spice"),
+      i("cinnamon stick, cardamom pods, bay leaves", 1, "set", "spice"),
+      i("saffron threads", 1, "pinch", "spice"),
+      i("ghee or butter", 3, "tbsp", "dairy"),
+      i("cilantro and mint", 0.5, "cup", "herb")
+    ],
+    steps: [
+      "Marinate chicken in yogurt, garlic, ginger, and ground spices (30 min to overnight).",
+      "Fry sliced onions in ghee until deep golden; set half aside for topping.",
+      "Par-boil basmati with the whole spices to 70% done; drain. Steep saffron in 2 tbsp hot water.",
+      "Layer: marinated chicken on the bottom of the pot, rice on top, saffron water and fried onions over the rice.",
+      "Cover tightly and steam on low 25 min. Rest 10, then fluff from the bottom up and finish with herbs."
+    ]
+  },
+
+  // ---------- AMERICAN CHINESE ----------
+  {
+    id: "hbh-spicy-sesame-noodles",
+    title: "Spicy Sesame Noodles with Ginger Chicken",
+    creator: "Half Baked Harvest",
+    url: "https://www.halfbakedharvest.com/spicy-sesame-noodles/",
+    cuisine: "American Chinese",
+    time: 25,
+    servings: 4,
+    spicy: true,
+    healthy: false,
+    note: "Szechuan-style noodles tangled with gingery ground chicken and chili-peanut oil. The saucy-noodle craving, handled in 25 minutes.",
+    ingredients: [
+      i("ramen or egg noodles", 8, "oz", "grain"),
+      i("ground chicken", 1, "lb", "meat"),
+      i("garlic cloves", 3, "", "produce"),
+      i("fresh ginger", 1, "tbsp", "produce"),
+      i("low-sodium soy sauce", 0.33, "cup", "condiment"),
+      i("chili garlic sauce", 2, "tbsp", "condiment"),
+      i("honey", 2, "tbsp", "condiment"),
+      i("toasted sesame oil", 2, "tbsp", "oil"),
+      i("roasted peanuts", 0.33, "cup", "nuts"),
+      i("green onions", 4, "", "produce"),
+      i("baby bok choy or spinach", 2, "cup", "produce"),
+      i("sesame seeds", 1, "tbsp", "nuts")
+    ],
+    steps: [
+      "Boil noodles; drain and toss with a little sesame oil.",
+      "Brown ground chicken hard with garlic and ginger until crispy at the edges.",
+      "Whisk soy, chili garlic sauce, honey, and sesame oil; pour over the chicken.",
+      "Add noodles and greens; toss until glossy and the greens wilt.",
+      "Top with peanuts, green onion, and sesame seeds."
+    ]
+  },
+  {
+    id: "rte-thai-chicken-stir-fry",
+    title: "Spicy Thai Chicken Stir Fry (Chili Basil)",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/spicy-thai-chicken-stir-fry/",
+    cuisine: "American Chinese",
+    time: 15,
+    servings: 4,
+    spicy: true,
+    healthy: true,
+    note: "Nagi's take on pad krapow — chili-garlic chicken mince with basil, on rice, in 15 minutes flat. Crown it with a fried egg.",
+    ingredients: [
+      i("ground chicken", 1, "lb", "meat"),
+      i("garlic cloves", 4, "", "produce"),
+      i("birds eye or serrano chilies", 2, "", "produce"),
+      i("green beans (cut small)", 1.5, "cup", "produce"),
+      i("low-sodium soy sauce", 2, "tbsp", "condiment"),
+      i("oyster sauce", 2, "tbsp", "condiment"),
+      i("fish sauce", 1, "tbsp", "condiment"),
+      i("sugar", 2, "tsp", "baking"),
+      i("thai or regular basil", 1, "cup", "herb"),
+      i("jasmine rice", 1.33, "cup", "grain"),
+      i("eggs (optional fried topper)", 4, "", "dairy")
+    ],
+    steps: [
+      "Start rice. Pound or mince garlic and chilies together.",
+      "Sear ground chicken in a screaming-hot wok with the garlic-chili paste, breaking it up.",
+      "Add green beans and the sauces; stir-fry 2 min until sticky.",
+      "Kill the heat and fold in the basil until just wilted.",
+      "Serve over rice, fried egg on top if you're doing it right."
+    ]
+  },
+  {
+    id: "rte-cashew-chicken",
+    title: "Chinese Cashew Chicken",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/chinese-cashew-chicken/",
+    cuisine: "American Chinese",
+    time: 25,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Glossy, saucy takeout classic — on the table faster than delivery, with real crunch from toasted cashews.",
+    ingredients: [
+      i("chicken thighs (boneless, cubed)", 1.25, "lb", "meat"),
+      i("roasted cashews", 0.75, "cup", "nuts"),
+      i("low-sodium soy sauce", 3, "tbsp", "condiment"),
+      i("hoisin sauce", 1, "tbsp", "condiment"),
+      i("rice vinegar", 1, "tbsp", "condiment"),
+      i("cornstarch", 2, "tsp", "baking"),
+      i("garlic cloves", 3, "", "produce"),
+      i("fresh ginger", 1, "tbsp", "produce"),
+      i("red bell pepper", 1, "", "produce"),
+      i("green onions", 4, "", "produce"),
+      i("toasted sesame oil", 1, "tbsp", "oil"),
+      i("jasmine rice", 1.33, "cup", "grain")
+    ],
+    steps: [
+      "Toss chicken with cornstarch and 1 tbsp soy. Stir remaining soy, hoisin, vinegar, and 1/4 cup water for the sauce.",
+      "Sear chicken in sesame oil until golden; add garlic, ginger, and bell pepper for 2 min.",
+      "Pour in the sauce and simmer 1–2 min until it clings.",
+      "Fold in cashews and green onions; serve over rice."
+    ]
+  },
+  {
+    id: "hbh-potstickers",
+    title: "Ginger Sesame Chicken Potstickers",
+    creator: "Half Baked Harvest",
+    url: "https://www.halfbakedharvest.com/ginger-sesame-chicken-potstickers/",
+    cuisine: "American Chinese",
+    time: 50,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Weekend project — crisp-bottomed, steam-finished dumplings. Fold them assembly-line style with Joey; extras freeze raw for instant future dinners.",
+    ingredients: [
+      i("ground chicken", 1, "lb", "meat"),
+      i("round dumpling wrappers", 30, "", "frozen"),
+      i("napa cabbage (finely shredded)", 1.5, "cup", "produce"),
+      i("green onions", 4, "", "produce"),
+      i("garlic cloves", 3, "", "produce"),
+      i("fresh ginger", 2, "tbsp", "produce"),
+      i("low-sodium soy sauce", 0.25, "cup", "condiment"),
+      i("toasted sesame oil", 2, "tbsp", "oil"),
+      i("honey", 1, "tbsp", "condiment"),
+      i("rice vinegar", 2, "tbsp", "condiment"),
+      i("chili oil (for dipping)", 1, "tbsp", "condiment")
+    ],
+    steps: [
+      "Mix chicken with cabbage, green onion, garlic, ginger, 2 tbsp soy, and 1 tbsp sesame oil.",
+      "Spoon a small mound onto each wrapper, wet the edge, fold, and pleat.",
+      "Sear flat-side down in a hot oiled skillet until deep golden, 2–3 min.",
+      "Add 1/3 cup water, cover, and steam 4–5 min until cooked through and the bottoms re-crisp.",
+      "Stir remaining soy, vinegar, honey, sesame oil, and chili oil for dipping."
+    ]
+  },
+
+  // ---------- AMERICAN ----------
+  {
+    id: "ouac-blackened-chicken",
+    title: "Blackened Chicken",
+    creator: "Once Upon a Chef",
+    url: "https://www.onceuponachef.com/recipes/blackened-chicken-skillet-grill-or-grill-pan.html",
+    cuisine: "American",
+    time: 25,
+    servings: 4,
+    spicy: true,
+    healthy: true,
+    note: "Cajun spice crust, screaming-hot skillet, juicy inside — a macro workhorse that doesn't taste like one. The rub keeps, so make a double batch.",
+    ingredients: [
+      i("chicken breasts", 1.5, "lb", "meat"),
+      i("smoked paprika", 1, "tbsp", "spice"),
+      i("garlic powder", 1, "tsp", "spice"),
+      i("onion powder", 1, "tsp", "spice"),
+      i("dried oregano", 0.75, "tsp", "spice"),
+      i("dried thyme", 0.75, "tsp", "spice"),
+      i("dry mustard", 0.75, "tsp", "spice"),
+      i("cayenne pepper", 0.5, "tsp", "spice"),
+      i("sugar", 1, "tsp", "baking"),
+      i("vegetable oil", 2, "tbsp", "oil"),
+      i("jasmine rice", 1.33, "cup", "grain"),
+      i("broccoli", 1, "lb", "produce"),
+      i("lemon", 1, "", "produce")
+    ],
+    steps: [
+      "Pound breasts to an even 1/2 inch; start rice and steam the broccoli.",
+      "Mix all the spices with salt; coat chicken with oil, then press on the rub.",
+      "Sear in a very hot skillet (or grill) 2–3 min per side until blackened and just cooked through.",
+      "Rest 5 min, slice, and serve over rice with broccoli and lemon."
+    ]
+  },
+  {
+    id: "ouac-chimichurri-chicken",
+    title: "Grilled Chimichurri Chicken Thighs",
+    creator: "Once Upon a Chef",
+    url: "https://www.onceuponachef.com/recipes/grilled-chimichurri-chicken-thighs.html",
+    cuisine: "American",
+    time: 35,
+    servings: 6,
+    spicy: false,
+    healthy: true,
+    note: "The chimichurri pulls double duty — half marinates the thighs, half gets spooned over at the table. Published chicken+sauce macros: 361 cal / 31P.",
+    ingredients: [
+      i("chicken thighs (boneless)", 2, "lb", "meat"),
+      i("fresh parsley", 1, "cup", "herb"),
+      i("fresh cilantro", 0.5, "cup", "herb"),
+      i("garlic cloves", 4, "", "produce"),
+      i("red wine vinegar", 3, "tbsp", "condiment"),
+      i("olive oil", 0.5, "cup", "oil"),
+      i("dried oregano", 1, "tsp", "spice"),
+      i("red pepper flakes", 0.5, "tsp", "spice"),
+      i("salt", 1, "tsp", "spice"),
+      i("jasmine rice", 1.33, "cup", "grain")
+    ],
+    steps: [
+      "Blitz parsley, cilantro, garlic, vinegar, oil, oregano, pepper flakes, and salt into chimichurri.",
+      "Marinate thighs in half the sauce, 30 min to overnight; start rice.",
+      "Grill or sear 5–6 min per side until charred and cooked through.",
+      "Rest, slice, and spoon the reserved chimichurri over everything."
+    ]
+  },
+  {
+    id: "ouac-bbq-chicken",
+    title: "Grilled BBQ Chicken",
+    creator: "Once Upon a Chef",
+    url: "https://www.onceuponachef.com/recipes/bbq-chicken.html",
+    cuisine: "American",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "The grill-night classic: spice-rubbed breasts lacquered with sauce in the final minutes so it caramelizes instead of burning. (The BBQ bowls stay the meal-prep lane.)",
+    ingredients: [
+      i("chicken breasts", 1.5, "lb", "meat"),
+      i("bbq sauce", 0.75, "cup", "condiment"),
+      i("smoked paprika", 2, "tsp", "spice"),
+      i("garlic powder", 1, "tsp", "spice"),
+      i("brown sugar", 1, "tbsp", "baking"),
+      i("salt and pepper", 1, "to taste", "spice"),
+      i("vegetable oil", 1, "tbsp", "oil"),
+      i("corn on the cob", 4, "", "produce"),
+      i("coleslaw mix", 3, "cup", "produce"),
+      i("mayonnaise", 3, "tbsp", "condiment"),
+      i("apple cider vinegar", 1, "tbsp", "condiment")
+    ],
+    steps: [
+      "Pound breasts even; rub with oil, paprika, garlic powder, brown sugar, salt, and pepper.",
+      "Grill 5–6 min per side, brushing with BBQ sauce only in the last 3–4 min.",
+      "Grill the corn alongside until charred, turning often.",
+      "Toss slaw mix with mayo, vinegar, and a pinch of sugar.",
+      "Rest the chicken, brush once more with sauce, and plate with corn and slaw."
+    ]
+  },
+  {
+    id: "dd-shrimp-grits",
+    title: "Garlic Butter Shrimp and Grits",
+    creator: "Damn Delicious",
+    url: "https://damndelicious.net/2019/08/24/garlic-butter-shrimp-and-grits/",
+    cuisine: "American",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "Southern comfort in 30 minutes — creamy cheddar grits under lemony, smoky garlic-butter shrimp. First grits in the library.",
+    ingredients: [
+      i("shrimp (peeled, deveined)", 1, "lb", "meat"),
+      i("quick-cooking grits", 0.75, "cup", "grain"),
+      i("sharp cheddar (shredded)", 0.75, "cup", "dairy"),
+      i("butter", 3, "tbsp", "dairy"),
+      i("chicken broth", 2, "cup", "canned"),
+      i("whole milk", 1, "cup", "dairy"),
+      i("shallot", 1, "", "produce"),
+      i("garlic cloves", 3, "", "produce"),
+      i("fresh thyme", 1, "tsp", "herb"),
+      i("smoked paprika", 0.5, "tsp", "spice"),
+      i("dry white wine", 0.25, "cup", "condiment"),
+      i("lemon", 1, "", "produce"),
+      i("chives", 2, "tbsp", "herb")
+    ],
+    steps: [
+      "Simmer grits in broth and milk, whisking, 5–7 min; stir in cheddar and 1 tbsp butter off heat.",
+      "Sauté shallot and garlic in remaining butter; add shrimp, thyme, and paprika.",
+      "Cook shrimp 2 min per side, then deglaze with wine and lemon juice for 1 min.",
+      "Spoon shrimp and pan sauce over the grits; finish with chives."
+    ]
+  },
+  {
+    id: "st-turkey-meatloaf",
+    title: "Turkey Meatloaf with Mashed Potatoes",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/turkey-meatloaf-45/",
+    cuisine: "American",
+    time: 65,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Gina's most classic comfort plate, lightened — published macros for the loaf alone: 259 cal / 37P per quarter. Mash + green beans added to make it dinner.",
+    ingredients: [
+      i("lean ground turkey (93%)", 1.3, "lb", "meat"),
+      i("onion (grated)", 0.5, "", "produce"),
+      i("breadcrumbs", 0.33, "cup", "bakery"),
+      i("egg", 1, "", "dairy"),
+      i("ketchup", 0.33, "cup", "condiment"),
+      i("worcestershire sauce", 1, "tsp", "condiment"),
+      i("dried marjoram", 0.25, "tsp", "spice"),
+      i("salt", 1, "tsp", "spice"),
+      i("yukon gold potatoes", 1.5, "lb", "produce"),
+      i("green beans", 1, "lb", "produce"),
+      i("milk", 0.5, "cup", "dairy"),
+      i("butter", 2, "tbsp", "dairy")
+    ],
+    steps: [
+      "Heat oven to 350°F. Sauté the grated onion 2 min to soften.",
+      "Mix turkey, onion, breadcrumbs, egg, 2 tbsp ketchup, Worcestershire, marjoram, and salt; shape into a loaf on a lined pan.",
+      "Spread remaining ketchup on top and bake 50–55 min to 165°F inside.",
+      "Meanwhile boil and mash potatoes with milk and butter; steam the green beans.",
+      "Rest the loaf 10 min before slicing thick."
+    ]
+  },
+  {
+    id: "tmp-turkey-burgers",
+    title: "Turkey Burgers",
+    creator: "The Modern Proper",
+    url: "https://themodernproper.com/turkey-burgers",
+    cuisine: "American",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Actually-juicy turkey burgers with caramelized onions, avocado, and a proper burger sauce. Burger night finally makes the rotation.",
+    ingredients: [
+      i("ground turkey", 1.5, "lb", "meat"),
+      i("worcestershire sauce", 1, "tbsp", "condiment"),
+      i("garlic powder", 1, "tsp", "spice"),
+      i("onion powder", 1, "tsp", "spice"),
+      i("salt and pepper", 1, "to taste", "spice"),
+      i("burger buns", 4, "", "bakery"),
+      i("yellow onion", 1, "", "produce"),
+      i("butter", 1, "tbsp", "dairy"),
+      i("avocado", 1, "", "produce"),
+      i("lettuce and tomato", 1, "set", "produce"),
+      i("mayonnaise", 0.25, "cup", "condiment"),
+      i("ketchup", 2, "tbsp", "condiment"),
+      i("pickle relish", 1, "tbsp", "condiment")
+    ],
+    steps: [
+      "Slowly caramelize the sliced onion in butter while you prep.",
+      "Mix turkey gently with Worcestershire, garlic powder, onion powder, salt, and pepper; form 4 patties with a thumb dimple.",
+      "Sear or grill 4–5 min per side to 165°F.",
+      "Stir mayo, ketchup, and relish into burger sauce.",
+      "Build on toasted buns: sauce, lettuce, patty, caramelized onion, avocado, tomato."
+    ]
+  },
+  // ---------- MEXICAN / LATIN ----------
+  {
+    id: "st-carne-asada-salad",
+    title: "Carne Asada Steak Salad",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/carne-asada-steak-salad/",
+    cuisine: "Mexican",
+    time: 20,
+    servings: 2,
+    spicy: true,
+    healthy: true,
+    note: "Serves exactly 2 — juicy cumin-garlic steak over greens with pico, guac, and Monterey Jack. Low-carb, high-protein, 20 minutes. A perfect leg-day dinner.",
+    ingredients: [
+      i("strip steak (boneless)", 1, "lb", "meat"),
+      i("garlic clove", 1, "", "produce"),
+      i("ground cumin", 1, "tsp", "spice"),
+      i("kosher salt", 0.5, "tsp", "spice"),
+      i("black pepper", 0.25, "tsp", "spice"),
+      i("mixed greens", 3, "cup", "produce"),
+      i("pico de gallo", 1, "cup", "produce"),
+      i("guacamole", 0.5, "cup", "condiment"),
+      i("monterey jack (shredded)", 0.25, "cup", "dairy"),
+      i("jalapeño", 1, "", "produce"),
+      i("limes", 2, "", "produce")
+    ],
+    steps: [
+      "Rub garlic all over the steak, then season with salt, cumin, and pepper.",
+      "Sear in a screaming-hot skillet (or grill) about 3 min per side for medium-rare to medium.",
+      "Rest 5 min, squeeze lime over, and slice thin against the grain.",
+      "Pile greens on two plates with pico, guacamole, jalapeño, and cheese.",
+      "Fan the steak over the top and finish with more lime."
+    ]
+  },
+  {
+    id: "st-carne-guisada",
+    title: "Carne Guisada (Latin Beef Stew)",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/carne-guisada-latin-beef-stew/",
+    cuisine: "Mexican",
+    time: 120,
+    servings: 6,
+    spicy: false,
+    healthy: true,
+    note: "Weekend braise — chunks of beef simmered in beer with cumin and cilantro until fork-tender, potatoes dropped in at the end. Gina's family Colombian classic; serve over rice.",
+    ingredients: [
+      i("beef stew meat (lean, cubed)", 2, "lb", "meat"),
+      i("scallions", 4, "", "produce"),
+      i("garlic cloves", 3, "", "produce"),
+      i("tomatoes (diced)", 2, "", "produce"),
+      i("cilantro", 0.5, "bunch", "herb"),
+      i("light beer", 1, "cup", "condiment"),
+      i("ground cumin", 1.5, "tsp", "spice"),
+      i("adobo seasoning", 1, "tsp", "spice"),
+      i("bay leaf", 1, "", "spice"),
+      i("yukon gold potatoes", 1, "lb", "produce"),
+      i("olive oil", 1, "tbsp", "oil"),
+      i("white rice", 1.33, "cup", "grain")
+    ],
+    steps: [
+      "Sauté scallions and garlic in oil 2–3 min; add tomatoes, cilantro, and a pinch of salt for 2 more.",
+      "Add beef, beer, a splash of water, cumin, adobo, and the bay leaf.",
+      "Cover and simmer on low about 1.5 hr until the beef pries apart with two forks.",
+      "Add cubed potatoes and cook 20 min more until soft; start the rice.",
+      "Serve the stew ladled over rice with extra cilantro."
+    ]
+  },
+
+  // ---------- ITALIAN ----------
+  {
+    id: "st-lasagna",
+    title: "Classic High-Protein Lasagna",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/lasagna-recipe/",
+    cuisine: "Italian",
+    time: 105,
+    servings: 8,
+    spicy: false,
+    healthy: true,
+    note: "Weekend project. Ground beef meat sauce, no-boil noodles, and a cottage-cheese filling that quietly pushes protein to 37g a slice. Published card: 394 cal per 1/8.",
+    ingredients: [
+      i("lean ground beef (93%)", 1, "lb", "meat"),
+      i("onion", 1, "", "produce"),
+      i("garlic cloves", 3, "", "produce"),
+      i("crushed tomatoes (28 oz)", 2, "can", "canned"),
+      i("no-boil lasagna noodles", 12, "", "grain"),
+      i("cottage cheese (2%)", 2, "cup", "dairy"),
+      i("eggs", 2, "", "dairy"),
+      i("shredded mozzarella", 2, "cup", "dairy"),
+      i("pecorino romano (grated)", 0.5, "cup", "dairy"),
+      i("fresh parsley", 0.25, "cup", "herb"),
+      i("italian seasoning", 2, "tsp", "spice")
+    ],
+    steps: [
+      "Brown beef with onion and garlic; add crushed tomatoes and Italian seasoning, simmer 20 min.",
+      "Beat eggs and mix with cottage cheese, pecorino, half the mozzarella, and parsley.",
+      "Layer in a 9x13: sauce, noodles, a third of the cheese mixture, a cup of sauce — repeat.",
+      "Finish with sauce and the remaining mozzarella; cover tight with foil.",
+      "Bake at 375°F 45 min covered, 15 uncovered until bubbling. Rest 15 min before slicing."
+    ]
+  },
+  {
+    id: "ck-minestrone",
+    title: "Classic Minestrone Soup",
+    creator: "Cookie and Kate",
+    url: "https://cookieandkate.com/classic-minestrone-soup-recipe/",
+    cuisine: "Italian",
+    time: 65,
+    servings: 6,
+    spicy: false,
+    healthy: true,
+    note: "The pantry workhorse — beans, seasonal veg, small pasta, and a parmesan rind if you have one. Tastes even better the next day; built for fall through spring.",
+    ingredients: [
+      i("olive oil", 3, "tbsp", "oil"),
+      i("yellow onion", 1, "", "produce"),
+      i("carrots", 2, "", "produce"),
+      i("celery ribs", 2, "", "produce"),
+      i("seasonal vegetables (zucchini or potato)", 2, "cup", "produce"),
+      i("garlic cloves", 4, "", "produce"),
+      i("diced tomatoes (28 oz)", 1, "can", "canned"),
+      i("cannellini beans (drained)", 1, "can", "canned"),
+      i("small pasta shells", 1, "cup", "grain"),
+      i("vegetable broth", 4, "cup", "canned"),
+      i("chopped kale or spinach", 2, "cup", "produce"),
+      i("dried oregano", 1, "tsp", "spice"),
+      i("dried thyme", 0.5, "tsp", "spice"),
+      i("bay leaves", 2, "", "spice"),
+      i("lemon", 1, "", "produce"),
+      i("grated parmesan", 0.33, "cup", "dairy")
+    ],
+    steps: [
+      "Sauté onion, carrot, and celery in oil until soft; add seasonal veg, garlic, oregano, and thyme.",
+      "Pour in tomatoes, broth, and bay leaves; simmer 15 min.",
+      "Add pasta, beans, and greens; cook until the pasta is just tender, about 20 min.",
+      "Finish with lemon juice, season boldly, and top bowls with parmesan."
+    ]
+  },
+
+  // ---------- MEDITERRANEAN ----------
+  {
+    id: "rte-midweek-paella",
+    title: "Midweek Paella",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/midweek-paella/",
+    cuisine: "Mediterranean",
+    time: 30,
+    servings: 5,
+    spicy: false,
+    healthy: true,
+    note: "Nagi's weeknight paella — chorizo, chicken, and golden saffron-style rice in one pan, under 30 minutes. Unlike risotto, the leftovers are still great tomorrow.",
+    ingredients: [
+      i("chicken thighs (boneless, cubed)", 1, "lb", "meat"),
+      i("chorizo", 6, "oz", "meat"),
+      i("medium or long grain rice", 1.5, "cup", "grain"),
+      i("chicken broth", 3, "cup", "canned"),
+      i("diced tomatoes (14 oz)", 1, "can", "canned"),
+      i("onion", 1, "", "produce"),
+      i("garlic cloves", 3, "", "produce"),
+      i("smoked paprika", 2, "tsp", "spice"),
+      i("turmeric or saffron", 0.5, "tsp", "spice"),
+      i("frozen peas", 1, "cup", "frozen"),
+      i("baby spinach", 2, "cup", "produce"),
+      i("lemon", 1, "", "produce"),
+      i("olive oil", 1, "tbsp", "oil"),
+      i("parsley", 0.25, "cup", "herb")
+    ],
+    steps: [
+      "Quarter and slice the chorizo; season the chicken. Sear both in oil until golden, then set aside.",
+      "Soften onion and garlic in the drippings; stir in paprika and turmeric.",
+      "Add rice, tomatoes, and broth; nestle the meats back in and simmer covered 15 min.",
+      "Scatter peas and spinach over the top for the last 3 minutes — no stirring, let the bottom crisp.",
+      "Rest 5 min, then finish with lemon wedges and parsley."
+    ]
+  },
+
+  // ---------- INDIAN ----------
+  {
+    id: "rte-palak-paneer",
+    title: "Palak Paneer (Spinach Curry with Paneer)",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/palak-paneer-indian-spinach-curry-with-cheese/",
+    cuisine: "Indian",
+    time: 70,
+    servings: 6,
+    spicy: true,
+    healthy: true,
+    note: "The iconic green curry — golden pan-fried paneer in a lush spinach sauce. Store-bought paneer keeps it weeknight; Nagi's 2-ingredient homemade paneer turns it into a weekend flex.",
+    ingredients: [
+      i("paneer (cubed)", 12, "oz", "dairy"),
+      i("fresh spinach", 1.5, "lb", "produce"),
+      i("yellow onions", 1.5, "", "produce"),
+      i("tomatoes", 2, "", "produce"),
+      i("garlic cloves", 2, "", "produce"),
+      i("fresh ginger", 2, "tsp", "produce"),
+      i("green chili", 1, "", "produce"),
+      i("ground coriander", 1, "tsp", "spice"),
+      i("ground cumin", 1, "tsp", "spice"),
+      i("garam masala", 1, "tsp", "spice"),
+      i("ghee or butter", 3, "tbsp", "dairy"),
+      i("lemon", 1, "", "produce"),
+      i("basmati rice", 1.33, "cup", "grain")
+    ],
+    steps: [
+      "Pan-fry paneer cubes in half the ghee until golden on all sides; set aside.",
+      "Sauté onion, garlic, ginger, and green chili until soft; add the ground spices for 1 min.",
+      "Add tomatoes and cook down 5 min, then wilt in the spinach in batches.",
+      "Blitz the sauce to your preferred texture, season, and add lemon juice.",
+      "Fold the paneer back in, simmer 3 min, and serve over basmati."
+    ]
+  },
+  {
+    id: "rte-rogan-josh",
+    title: "Rogan Josh (Lamb Curry)",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/rogan-josh/",
+    cuisine: "Indian",
+    time: 170,
+    servings: 4,
+    spicy: true,
+    healthy: true,
+    note: "Weekend project and the library's first lamb — fall-apart lamb shoulder in a deep Kashmiri-spiced tomato curry, finished with yogurt. Every spice comes from a regular grocery store.",
+    ingredients: [
+      i("lamb shoulder (boneless, cubed)", 2, "lb", "meat"),
+      i("onions", 2, "", "produce"),
+      i("garlic cloves", 4, "", "produce"),
+      i("fresh ginger", 1.5, "tbsp", "produce"),
+      i("crushed tomatoes (14 oz)", 1, "can", "canned"),
+      i("greek yogurt", 0.5, "cup", "dairy"),
+      i("paprika", 2, "tsp", "spice"),
+      i("ground coriander", 2, "tsp", "spice"),
+      i("ground cumin", 2, "tsp", "spice"),
+      i("garam masala", 2, "tsp", "spice"),
+      i("ground fennel", 0.5, "tsp", "spice"),
+      i("cayenne pepper", 0.5, "tsp", "spice"),
+      i("ghee or oil", 2, "tbsp", "oil"),
+      i("basmati rice", 1.33, "cup", "grain"),
+      i("cilantro", 0.5, "bunch", "herb")
+    ],
+    steps: [
+      "Brown the lamb in ghee in batches; set aside.",
+      "Soften onions, garlic, and ginger, then bloom all the ground spices 1 min.",
+      "Add tomatoes and the lamb, bring to a gentle simmer, and cover.",
+      "Cook on low 1 hr 45 min until the lamb pries apart, then uncover 15 min to thicken.",
+      "Stir in yogurt with a pinch more garam masala and fennel; serve over basmati with cilantro."
+    ]
+  },
+
+  // ---------- AMERICAN CHINESE ----------
+  {
+    id: "dd-orange-chicken",
+    title: "Chinese Orange Chicken",
+    creator: "Damn Delicious",
+    url: "https://damndelicious.net/2013/10/19/chinese-orange-chicken/",
+    cuisine: "American Chinese",
+    time: 50,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "The takeout-treat entry — crispy egg-and-cornstarch chicken in a glossy fresh-orange glaze. 'Not even Panda Express can beat this.' Different lane than General Tso (sweet citrus vs spicy-dark).",
+    ingredients: [
+      i("chicken breasts (cubed)", 1.5, "lb", "meat"),
+      i("chicken broth", 1, "cup", "canned"),
+      i("oranges (juice and zest)", 2, "", "produce"),
+      i("sugar", 2, "tbsp", "baking"),
+      i("white vinegar", 0.33, "cup", "condiment"),
+      i("low-sodium soy sauce", 0.25, "cup", "condiment"),
+      i("garlic clove", 1, "", "produce"),
+      i("fresh ginger", 0.5, "tsp", "produce"),
+      i("sriracha", 1, "tsp", "condiment"),
+      i("eggs", 2, "", "dairy"),
+      i("cornstarch", 0.75, "cup", "baking"),
+      i("vegetable oil", 0.33, "cup", "oil"),
+      i("green onions", 2, "", "produce"),
+      i("jasmine rice", 1.33, "cup", "grain")
+    ],
+    steps: [
+      "Whisk broth, orange juice and zest, sugar, vinegar, soy, garlic, sriracha, and ginger; marinate chicken in two-thirds of it 30 min. Reserve the rest.",
+      "Simmer the reserved marinade with a cornstarch slurry until glossy; keep warm.",
+      "Dip drained chicken in beaten egg, dredge in cornstarch, and pan-fry in batches until deep golden.",
+      "Toss the crispy chicken with as much sauce as you like.",
+      "Serve over rice with green onions; keep extra sauce for spooning."
+    ]
+  },
+  {
+    id: "st-egg-roll-bowl",
+    title: "Chicken Egg Roll Bowl",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/chicken-egg-roll-bowl/",
+    cuisine: "American Chinese",
+    time: 25,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Everything you love about an egg roll, deconstructed — gingery ground chicken and crunchy cabbage over rice, under 30 minutes. Published card: 442 cal / 36P including the rice.",
+    ingredients: [
+      i("ground chicken", 1.25, "lb", "meat"),
+      i("coleslaw mix or shredded cabbage", 5, "cup", "produce"),
+      i("scallions", 4, "", "produce"),
+      i("garlic cloves", 3, "", "produce"),
+      i("fresh ginger", 1, "tbsp", "produce"),
+      i("low-sodium soy sauce", 3, "tbsp", "condiment"),
+      i("rice wine (or dry sherry)", 1, "tbsp", "condiment"),
+      i("toasted sesame oil", 1, "tbsp", "oil"),
+      i("white rice", 1.33, "cup", "grain"),
+      i("sriracha (optional)", 1, "tsp", "condiment")
+    ],
+    steps: [
+      "Start rice. Brown ground chicken with a splash of the soy, breaking it up as it cooks.",
+      "Add scallion whites, garlic, and ginger; cook 2–3 min.",
+      "Add cabbage, remaining soy, rice wine, and sesame oil; stir-fry until wilted but still crunchy, about 4 min.",
+      "Serve over rice topped with scallion greens and sriracha."
+    ]
+  },
+
+  // ---------- AMERICAN ----------
+  {
+    id: "bb-salisbury-steak",
+    title: "Salisbury Steak with Mushroom Gravy",
+    creator: "Budget Bytes",
+    url: "https://www.budgetbytes.com/salisbury-steak-with-mushroom-gravy/",
+    cuisine: "American",
+    time: 35,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "The TV-dinner classic done right — seared beef patties smothered in mushroom-onion gravy over mashed potatoes with peas. Retro comfort, real food.",
+    ingredients: [
+      i("lean ground beef", 1, "lb", "meat"),
+      i("yellow onion", 1, "", "produce"),
+      i("egg", 1, "", "dairy"),
+      i("breadcrumbs", 0.5, "cup", "bakery"),
+      i("worcestershire sauce", 1, "tbsp", "condiment"),
+      i("italian seasoning", 1, "tsp", "spice"),
+      i("baby bella mushrooms (sliced)", 8, "oz", "produce"),
+      i("butter", 2, "tbsp", "dairy"),
+      i("flour", 2, "tbsp", "baking"),
+      i("beef broth", 2, "cup", "canned"),
+      i("yukon gold potatoes", 1.5, "lb", "produce"),
+      i("milk", 0.5, "cup", "dairy"),
+      i("frozen peas", 1.5, "cup", "frozen"),
+      i("cooking oil", 1, "tbsp", "oil")
+    ],
+    steps: [
+      "Mince half the onion into the beef with egg, breadcrumbs, Worcestershire, and Italian seasoning; shape 4 flat ovals.",
+      "Sear the patties about 5 min per side until browned; set aside. Start potatoes boiling.",
+      "Cook sliced onion and mushrooms in butter in the same skillet; stir in flour, then whisk in broth until thickened.",
+      "Return patties to the gravy and simmer 5 min while you mash the potatoes with milk and steam the peas.",
+      "Plate patties and gravy over the mash with peas alongside."
+    ]
+  },
+  {
+    id: "st-pot-pie-soup",
+    title: "Chicken Pot Pie Soup",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/chicken-pot-pie-soup/",
+    cuisine: "American",
+    time: 45,
+    servings: 6,
+    spicy: false,
+    healthy: true,
+    note: "All the pot pie comfort, none of the crust math — creamy, chunky, and loaded. Published card: 268 cal / 30P per bowl. Rotisserie chicken makes it even faster.",
+    ingredients: [
+      i("cooked chicken breast (diced)", 16, "oz", "meat"),
+      i("fat-free milk", 4, "cup", "dairy"),
+      i("chicken bouillon cubes", 2, "", "canned"),
+      i("flour", 0.25, "cup", "baking"),
+      i("celery stalk", 1, "", "produce"),
+      i("onion", 0.5, "", "produce"),
+      i("baby bella mushrooms (sliced)", 8, "oz", "produce"),
+      i("frozen mixed vegetables", 10, "oz", "frozen"),
+      i("yukon gold potatoes", 2, "", "produce"),
+      i("dried thyme", 0.25, "tsp", "spice"),
+      i("black pepper", 0.25, "tsp", "spice")
+    ],
+    steps: [
+      "Whisk the flour into 1/2 cup cold water for a slurry; set aside.",
+      "Bring milk and 1.5 cups water slowly to a boil; add celery, onion, mushrooms, bouillon, thyme, pepper, and frozen veg.",
+      "Partially cover and simmer 20 min until tender.",
+      "Add cubed potatoes and cook 5 min until soft.",
+      "Stir in the chicken and slurry; cook a few minutes until thickened. Season and serve."
+    ]
+  },
+  {
+    id: "st-santa-fe-peppers",
+    title: "Santa Fe Turkey Stuffed Peppers",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/santa-fe-turkey-stuffed-peppers/",
+    cuisine: "American",
+    time: 60,
+    servings: 4,
+    spicy: true,
+    healthy: true,
+    note: "Southwest-stuffed bells — ground turkey, black beans, corn, and melted cheese. Published card: 302 cal / 31P per two halves. First stuffed peppers in the library.",
+    ingredients: [
+      i("lean ground turkey", 1.3, "lb", "meat"),
+      i("bell peppers", 4, "", "produce"),
+      i("black beans (drained)", 1, "can", "canned"),
+      i("frozen corn", 0.75, "cup", "frozen"),
+      i("diced tomatoes with green chilies (10 oz)", 1, "can", "canned"),
+      i("onion", 0.5, "", "produce"),
+      i("garlic cloves", 2, "", "produce"),
+      i("ground cumin", 1.5, "tsp", "spice"),
+      i("chicken broth", 0.33, "cup", "canned"),
+      i("shredded cheddar or jack", 0.75, "cup", "dairy"),
+      i("scallions", 3, "", "produce"),
+      i("cilantro", 0.25, "cup", "herb")
+    ],
+    steps: [
+      "Brown turkey with onion, garlic, and cumin; stir in beans, corn, tomatoes, and cilantro. Simmer 5 min.",
+      "Halve and seed the peppers; arrange cut-side up in a baking dish.",
+      "Fill each half with the turkey mixture and pour the broth into the bottom of the dish.",
+      "Cover tight with foil and bake at 375°F 45–50 min until the peppers are soft.",
+      "Uncover, top with cheese, bake 5 min more, and finish with scallions."
+    ]
+  },
   // ---------------------------- DESSERTS (lighter / lower-fat) ----------------------------
   {
     id: "hbh-blackberry-yogurt-bark",
@@ -2288,6 +3579,147 @@ const RECIPES = [
       "Bake at 350°F 8–10 min; sea salt on top, rest 5 min on the pan before racking.",
     ],
   },
+  {
+    id: "st-crepe-cake",
+    title: "No-Bake Strawberries and Cream Crepe Cake",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/no-bake-strawberries-and-cream-crepe-cake/",
+    cuisine: "Dessert",
+    time: 45,
+    servings: 12,
+    spicy: false,
+    healthy: true,
+    note: "Show-stopper for guests — thin whole-wheat crepes stacked with Greek-yogurt cream and strawberries. Published card: 182 cal per slice.",
+    ingredients: [
+      i("whole wheat flour", 1, "cup", "baking"),
+      i("eggs", 2, "", "dairy"),
+      i("milk", 1.25, "cup", "dairy"),
+      i("butter (melted)", 2, "tbsp", "dairy"),
+      i("vanilla extract", 1, "tsp", "baking"),
+      i("greek yogurt", 1.5, "cup", "dairy"),
+      i("light whipped topping", 1.5, "cup", "dairy"),
+      i("powdered sugar", 0.33, "cup", "baking"),
+      i("strawberries", 1.5, "lb", "produce")
+    ],
+    steps: [
+      "Blend flour, eggs, milk, butter, and vanilla into a thin batter; rest 10 min.",
+      "Swirl thin crepes in a nonstick pan, about 1 min per side — you want 10 to 12. Cool completely.",
+      "Fold yogurt, whipped topping, and powdered sugar into a light cream.",
+      "Stack: crepe, thin layer of cream, sliced strawberries — repeat to the top.",
+      "Chill at least 1 hr, then crown with berries and slice like a cake."
+    ]
+  },
+  {
+    id: "st-strawberry-cheesecake",
+    title: "No-Bake Strawberry Cheesecake",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/low-fat-strawberry-no-bake-cheesecake/",
+    cuisine: "Dessert",
+    time: 15,
+    servings: 8,
+    spicy: false,
+    healthy: true,
+    note: "Fifteen minutes of work, zero oven — light cheesecake filling in a graham crust under fresh strawberries. Published card: 233 cal per slice.",
+    ingredients: [
+      i("reduced-fat cream cheese", 8, "oz", "dairy"),
+      i("greek yogurt", 1, "cup", "dairy"),
+      i("light whipped topping", 8, "oz", "frozen"),
+      i("powdered sugar", 0.33, "cup", "baking"),
+      i("vanilla extract", 1, "tsp", "baking"),
+      i("reduced-fat graham cracker crust", 1, "", "bakery"),
+      i("strawberries", 1, "lb", "produce")
+    ],
+    steps: [
+      "Beat cream cheese, yogurt, powdered sugar, and vanilla until completely smooth.",
+      "Fold in the whipped topping gently to keep it airy.",
+      "Spread into the graham crust and smooth the top.",
+      "Chill at least 4 hr until set, then pile high with sliced strawberries."
+    ]
+  },
+  {
+    id: "hbh-pb-krispie-bars",
+    title: "Chewy Chocolate Peanut Butter Bars",
+    creator: "Half Baked Harvest",
+    url: "https://www.halfbakedharvest.com/chewy-chocolate-peanut-butter-bars/",
+    cuisine: "Dessert",
+    time: 45,
+    servings: 16,
+    spicy: false,
+    healthy: false,
+    note: "No-bake scotcheroo-meets-Twix bars — chewy krispie base, thick PB layer, salted dark chocolate top. Honey + maple, no processed sugar.",
+    ingredients: [
+      i("brown rice crisp cereal", 4, "cup", "grain"),
+      i("natural peanut butter", 1.66, "cup", "nuts"),
+      i("honey", 0.33, "cup", "condiment"),
+      i("maple syrup", 0.33, "cup", "condiment"),
+      i("coconut oil", 3, "tbsp", "oil"),
+      i("dark chocolate (chopped)", 8, "oz", "baking"),
+      i("flaky sea salt", 0.5, "tsp", "spice")
+    ],
+    steps: [
+      "Boil honey and maple 1–2 min until thickened; stir in 2/3 cup peanut butter and 1 tbsp coconut oil.",
+      "Toss with cereal, press firmly into a lined 8x8 pan.",
+      "Warm remaining peanut butter with 1 tbsp coconut oil until pourable; spread over the base and freeze 30 min.",
+      "Melt chocolate with the last of the coconut oil; pour over the chilled PB layer.",
+      "Sprinkle sea salt, slice while the chocolate is still soft, and keep refrigerated."
+    ]
+  },
+  {
+    id: "st-lemon-bars",
+    title: "Honey Lemon Bars",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/skinny-honey-lemon-bars/",
+    cuisine: "Dessert",
+    time: 60,
+    servings: 16,
+    spicy: false,
+    healthy: true,
+    note: "First lemon dessert in the library — sweet-tart honey lemon filling on a whole-wheat shortbread crust, far less butter and sugar than the classic. Make the parchment sling; don't skip it.",
+    ingredients: [
+      i("whole wheat flour", 0.75, "cup", "baking"),
+      i("all-purpose flour", 0.5, "cup", "baking"),
+      i("brown sugar", 0.25, "cup", "baking"),
+      i("cornstarch", 2, "tbsp", "baking"),
+      i("baking powder", 0.5, "tsp", "baking"),
+      i("butter (cold, cubed)", 5, "tbsp", "dairy"),
+      i("lemons (juice and zest)", 3, "", "produce"),
+      i("honey", 0.5, "cup", "condiment"),
+      i("eggs", 3, "", "dairy"),
+      i("powdered sugar (for dusting)", 1, "tbsp", "baking")
+    ],
+    steps: [
+      "Line an 8-inch glass dish with a parchment sling and heat oven to 350°F.",
+      "Pulse flours, brown sugar, cornstarch, zest, baking powder, and butter into a crumbly dough; press in, edging up the sides 1/4 inch.",
+      "Bake the crust 20 min and let it cool slightly.",
+      "Whisk eggs, honey, and lemon juice; pour over the crust and bake 22–25 min until just set.",
+      "Cool completely, lift out by the sling, cut 16 squares, and dust with powdered sugar."
+    ]
+  },
+  {
+    id: "st-baked-pears",
+    title: "Baked Pears with Walnuts and Honey",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/baked-pears-with-walnuts-and-honey/",
+    cuisine: "Dessert",
+    time: 35,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Four ingredients, 110 calories — the fall sibling of your baked apples (different fruit, honey-walnut top). A dollop of Greek yogurt makes it dessert; skip it and it's breakfast.",
+    ingredients: [
+      i("ripe pears (Anjou or Bosc)", 2, "", "produce"),
+      i("ground cinnamon", 0.25, "tsp", "spice"),
+      i("honey", 2, "tsp", "condiment"),
+      i("crushed walnuts", 0.25, "cup", "nuts"),
+      i("greek yogurt (optional)", 0.5, "cup", "dairy")
+    ],
+    steps: [
+      "Heat oven to 350°F. Halve the pears and scoop out the seeds with a melon baller; trim a sliver so they sit flat.",
+      "Sprinkle with cinnamon, top with walnuts, and drizzle 1/2 teaspoon honey over each half.",
+      "Bake 30 min until tender and caramelized at the edges.",
+      "Serve warm, with a spoonful of Greek yogurt if it's dessert night."
+    ]
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -2385,6 +3817,56 @@ const RECIPE_MACROS = {
   // Desserts — Batch 2
   "st-baked-apples":                  { c: 154, p: 1.5,  cb: 27, f: 6.5,  pro: "none",       q: true,  est: false }, // per ½ apple, Skinnytaste card
   "st-choc-chip-cookies":             { c: 133, p: 2,    cb: 20, f: 6,    pro: "none",       q: true,  est: false }, // per 2 cookies, Skinnytaste card
+  // Dinners — Batch 3
+  "rte-carnitas":                { c: 540, p: 48, cb: 42, f: 16, pro: "pork",       q: false, est: true  }, // 3 tacos; published per-taco 160/17.5P
+  "tmp-fish-tacos":              { c: 520, p: 38, cb: 46, f: 20, pro: "fish",       q: false, est: true  },
+  "ck-black-bean-soup":          { c: 320, p: 16, cb: 52, f: 6,  pro: "vegetarian", q: false, est: true  },
+  "rte-carnitas-quesadillas":    { c: 580, p: 38, cb: 48, f: 26, pro: "pork",       q: true,  est: true  },
+  "dd-shrimp-pasta":             { c: 560, p: 34, cb: 58, f: 20, pro: "shrimp",     q: true,  est: true  },
+  "hbh-caprese-pasta-salad":     { c: 490, p: 32, cb: 48, f: 18, pro: "chicken",    q: false, est: true  },
+  "ck-margherita-pizza":         { c: 560, p: 24, cb: 70, f: 20, pro: "vegetarian", q: false, est: true  },
+  "bb-vodka-rigatoni":           { c: 480, p: 28, cb: 58, f: 14, pro: "chicken",    q: false, est: true  },
+  "st-chicken-piccata":          { c: 470, p: 38, cb: 44, f: 12, pro: "chicken",    q: true,  est: true  }, // incl angel hair
+  "ck-falafel":                  { c: 520, p: 18, cb: 62, f: 22, pro: "vegetarian", q: false, est: true  },
+  "bb-shakshuka":                { c: 420, p: 22, cb: 46, f: 16, pro: "vegetarian", q: true,  est: true  },
+  "rte-greek-lemon-rice":        { c: 620, p: 30, cb: 48, f: 28, pro: "chicken",    q: false, est: true  }, // skin-on thighs
+  "hbh-harissa-chicken":         { c: 480, p: 32, cb: 38, f: 22, pro: "chicken",    q: false, est: true  },
+  "rte-portuguese-chicken-rice": { c: 560, p: 34, cb: 52, f: 22, pro: "chicken",    q: false, est: true  },
+  "hbh-coconut-salmon":          { c: 610, p: 38, cb: 42, f: 32, pro: "salmon",     q: true,  est: true  }, // incl rice
+  "rte-tandoori":                { c: 540, p: 42, cb: 48, f: 18, pro: "chicken",    q: false, est: true  }, // incl basmati
+  "rte-biryani":                 { c: 590, p: 22, cb: 55, f: 32, pro: "chicken",    q: false, est: true  },
+  "hbh-spicy-sesame-noodles":    { c: 560, p: 32, cb: 52, f: 24, pro: "chicken",    q: true,  est: true  },
+  "rte-thai-chicken-stir-fry":   { c: 480, p: 34, cb: 46, f: 16, pro: "chicken",    q: true,  est: true  }, // incl rice, no egg
+  "rte-cashew-chicken":          { c: 540, p: 36, cb: 50, f: 20, pro: "chicken",    q: true,  est: true  }, // incl rice
+  "hbh-potstickers":             { c: 460, p: 30, cb: 44, f: 18, pro: "chicken",    q: false, est: true  }, // ~7 potstickers
+  "ouac-blackened-chicken":      { c: 520, p: 45, cb: 42, f: 16, pro: "chicken",    q: true,  est: true  }, // incl rice + broccoli
+  "ouac-chimichurri-chicken":    { c: 550, p: 34, cb: 40, f: 26, pro: "chicken",    q: false, est: true  }, // published chicken+sauce 361/31P; rice added
+  "ouac-bbq-chicken":            { c: 480, p: 42, cb: 42, f: 14, pro: "chicken",    q: true,  est: true  }, // incl corn + slaw
+  "dd-shrimp-grits":             { c: 520, p: 32, cb: 46, f: 22, pro: "shrimp",     q: true,  est: true  },
+  "st-turkey-meatloaf":          { c: 470, p: 40, cb: 45, f: 9,  pro: "turkey",     q: false, est: true  }, // published loaf-only 259/37P; mash + beans added
+  "tmp-turkey-burgers":          { c: 560, p: 36, cb: 42, f: 26, pro: "turkey",     q: true,  est: true  },
+
+  // Desserts — Batch 3
+  "st-crepe-cake":               { c: 182, p: 5,   cb: 22, f: 8.5, pro: "none", q: false, est: false }, // per slice, Skinnytaste card
+  "st-strawberry-cheesecake":    { c: 233.5, p: 3.1, cb: 29.9, f: 9.6, pro: "none", q: true,  est: false }, // per slice, Skinnytaste card
+  "hbh-pb-krispie-bars":         { c: 240, p: 5,   cb: 24, f: 15,  pro: "none", q: true,  est: true  }, // per bar
+  // Dinners — Batch 4
+  "st-carne-asada-salad":  { c: 420, p: 38, cb: 14, f: 24, pro: "beef",       q: true,  est: true  }, // low-carb by design
+  "st-carne-guisada":      { c: 520, p: 38, cb: 45, f: 14, pro: "beef",       q: false, est: true  }, // incl rice
+  "st-lasagna":            { c: 394, p: 37, cb: 36.5, f: 11.5, pro: "beef",   q: false, est: false }, // per 1/8, Skinnytaste card
+  "ck-minestrone":         { c: 340, p: 14, cb: 54, f: 9,  pro: "vegetarian", q: false, est: true  },
+  "rte-midweek-paella":    { c: 560, p: 36, cb: 52, f: 22, pro: "chicken",    q: true,  est: true  },
+  "rte-palak-paneer":      { c: 560, p: 24, cb: 48, f: 30, pro: "vegetarian", q: false, est: true  }, // incl basmati
+  "rte-rogan-josh":        { c: 580, p: 42, cb: 42, f: 26, pro: "lamb",       q: false, est: true  }, // incl basmati
+  "dd-orange-chicken":     { c: 620, p: 38, cb: 58, f: 24, pro: "chicken",    q: false, est: true  }, // fried; treat night
+  "st-egg-roll-bowl":      { c: 442, p: 36, cb: 46.5, f: 12, pro: "chicken",  q: true,  est: false }, // incl rice, Skinnytaste card
+  "bb-salisbury-steak":    { c: 540, p: 34, cb: 42, f: 24, pro: "beef",       q: true,  est: true  }, // incl mash + peas
+  "st-pot-pie-soup":       { c: 268, p: 30, cb: 32, f: 3.5, pro: "chicken",   q: false, est: false }, // per 1.5 cups, Skinnytaste card
+  "st-santa-fe-peppers":   { c: 302.5, p: 31, cb: 32.5, f: 7, pro: "turkey",  q: false, est: false }, // per 2 halves, Skinnytaste card
+
+  // Desserts — Batch 4
+  "st-lemon-bars":         { c: 130, p: 2.5, cb: 22, f: 4.5, pro: "none", q: false, est: true  }, // per bar
+  "st-baked-pears":        { c: 110.5, p: 1.5, cb: 17, f: 5, pro: "none", q: true,  est: false }, // per 1/2 pear, Skinnytaste card
 };
 
 // Merge macros onto each recipe. `estimated` is true unless the entry is marked
