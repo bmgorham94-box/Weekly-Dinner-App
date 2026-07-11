@@ -3276,6 +3276,437 @@ const RECIPES = [
       "Uncover, top with cheese, bake 5 min more, and finish with scallions."
     ]
   },
+  // ---------- MEXICAN ----------
+  {
+    id: "rte-barbacoa",
+    title: "Beef Barbacoa (Slow Cooker)",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/beef-barbacoa/",
+    cuisine: "Mexican",
+    time: 480,
+    servings: 10,
+    spicy: true,
+    healthy: true,
+    note: "The Chipotle-style pulled beef — smoky, tangy, with cloves as the secret weapon. Set-and-forget weekend batch; feeds taco night, burrito bowls, and half a week of lunches.",
+    ingredients: [
+      i("beef chuck roast", 3.5, "lb", "meat"),
+      i("chipotles in adobo", 3, "", "canned"),
+      i("garlic cloves", 5, "", "produce"),
+      i("onion", 1, "", "produce"),
+      i("beef broth", 1, "cup", "canned"),
+      i("apple cider vinegar", 0.25, "cup", "condiment"),
+      i("limes", 2, "", "produce"),
+      i("ground cumin", 1, "tbsp", "spice"),
+      i("dried oregano", 2, "tsp", "spice"),
+      i("ground cloves", 0.25, "tsp", "spice"),
+      i("bay leaves", 2, "", "spice"),
+      i("small tortillas", 12, "", "bakery"),
+      i("cilantro", 1, "bunch", "herb")
+    ],
+    steps: [
+      "Blitz chipotles, garlic, onion, broth, vinegar, and all the spices into a sauce.",
+      "Cut the chuck into 4 big chunks, season, and sear hard on all sides (optional but worth it).",
+      "Slow cook beef, sauce, and bay leaves on low 8 hr until it collapses at a fork.",
+      "Shred in the pot, stir through the juices with a big squeeze of lime, and rest 10 min to soak.",
+      "Serve in tortillas or over rice bowls with cilantro, onion, and more lime."
+    ]
+  },
+
+  // ---------- ITALIAN ----------
+  {
+    id: "rte-beef-ragu",
+    title: "Slow Cooked Shredded Beef Ragu with Pappardelle",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/slow-cooked-shredded-beef-ragu-pasta/",
+    cuisine: "Italian",
+    time: 170,
+    servings: 6,
+    spicy: false,
+    healthy: false,
+    note: "Weekend project — Nagi calls it 'maybe the king of all pastas' and loves it more than bolognese. Shredded chuck clings to wide pappardelle like nothing else. Even better the next day.",
+    ingredients: [
+      i("beef chuck roast", 2.5, "lb", "meat"),
+      i("onion", 1, "", "produce"),
+      i("garlic cloves", 4, "", "produce"),
+      i("carrot", 1, "", "produce"),
+      i("celery rib", 1, "", "produce"),
+      i("crushed tomatoes (28 oz)", 1, "can", "canned"),
+      i("tomato paste", 2, "tbsp", "canned"),
+      i("dry red wine", 0.75, "cup", "condiment"),
+      i("beef broth", 0.75, "cup", "canned"),
+      i("dried thyme", 1, "tsp", "spice"),
+      i("bay leaves", 2, "", "spice"),
+      i("pappardelle", 14, "oz", "grain"),
+      i("grated parmesan", 0.5, "cup", "dairy"),
+      i("olive oil", 2, "tbsp", "oil")
+    ],
+    steps: [
+      "Season and sear the chuck hard on all sides; set aside.",
+      "Soften onion, carrot, celery, and garlic in the same pot; deglaze with wine.",
+      "Add tomatoes, paste, broth, thyme, and bay; return the beef, cover, and simmer low 2 hr until it pries apart.",
+      "Shred the beef in the sauce and simmer 30 min uncovered to thicken.",
+      "Toss with just-cooked pappardelle and a splash of pasta water; bury it in parmesan."
+    ]
+  },
+
+  // ---------- AMERICAN CHINESE ----------
+  {
+    id: "dd-mongolian-beef",
+    title: "Mongolian Beef (PF Chang's Copycat)",
+    creator: "Damn Delicious",
+    url: "https://damndelicious.net/2013/10/05/pf-changs-mongolian-beef-copycat-recipe/",
+    cuisine: "American Chinese",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "Crispy cornstarch-seared flank steak in that glossy garlic-soy glaze with scallions. Freeze the steak 20 min first for paper-thin slices. Homemade means half the sugar of takeout.",
+    ingredients: [
+      i("flank steak", 1.5, "lb", "meat"),
+      i("cornstarch", 0.25, "cup", "baking"),
+      i("vegetable oil", 3, "tbsp", "oil"),
+      i("low-sodium soy sauce", 0.5, "cup", "condiment"),
+      i("brown sugar", 0.33, "cup", "baking"),
+      i("garlic cloves", 3, "", "produce"),
+      i("fresh ginger", 1, "tbsp", "produce"),
+      i("green onions", 4, "", "produce"),
+      i("sesame seeds", 1, "tbsp", "nuts"),
+      i("jasmine rice", 1.33, "cup", "grain")
+    ],
+    steps: [
+      "Simmer soy, brown sugar, garlic, ginger, and 1/2 cup water 5–10 min until slightly thickened.",
+      "Freeze the steak 20 min, slice paper-thin against the grain, and toss with cornstarch.",
+      "Sear the beef in batches in a screaming-hot skillet, 2–3 min, until crisp at the edges.",
+      "Return all the beef with the sauce and cook 2 min until it clings; fold in green onions.",
+      "Serve over rice with sesame seeds."
+    ]
+  },
+  {
+    id: "rte-rendang",
+    title: "Beef Rendang",
+    creator: "RecipeTin Eats",
+    url: "https://www.recipetineats.com/beef-rendang/",
+    cuisine: "American Chinese",
+    time: 200,
+    servings: 6,
+    spicy: true,
+    healthy: false,
+    note: "Weekend project — 'the king of all curries.' A dry Malaysian coconut curry where the sauce reduces to a thick coat on collapsing-tender beef. Make it a day ahead; it only improves.",
+    ingredients: [
+      i("beef chuck roast (cubed)", 2, "lb", "meat"),
+      i("coconut milk (full fat)", 1, "can", "canned"),
+      i("onion", 1, "", "produce"),
+      i("garlic cloves", 5, "", "produce"),
+      i("fresh ginger", 2, "tbsp", "produce"),
+      i("lemongrass stalks", 2, "", "produce"),
+      i("dried red chilies (or 2 tbsp chili paste)", 5, "", "spice"),
+      i("cinnamon stick, star anise, cardamom, cloves", 1, "set", "spice"),
+      i("shredded coconut (toasted)", 0.33, "cup", "baking"),
+      i("makrut lime leaves (or zest of 1 lime)", 4, "", "herb"),
+      i("brown sugar", 1, "tbsp", "baking"),
+      i("jasmine rice", 1.33, "cup", "grain"),
+      i("vegetable oil", 2, "tbsp", "oil")
+    ],
+    steps: [
+      "Blitz onion, garlic, ginger, lemongrass, and chilies into a paste; fry in oil until fragrant.",
+      "Brown the beef in the paste, then add coconut milk, whole spices, lime leaves, sugar, and 1 cup water.",
+      "Simmer uncovered on low 2.5–3 hr, stirring now and then, until the beef is fork-tender.",
+      "Keep cooking as the sauce reduces to a thick, deep-brown coat, stirring often at the end so nothing catches.",
+      "Stir in toasted coconut and serve over rice."
+    ]
+  },
+
+  // ---------- AMERICAN ----------
+  {
+    id: "bb-beef-stroganoff",
+    title: "One Pot Beef Stroganoff",
+    creator: "Budget Bytes",
+    url: "https://www.budgetbytes.com/beef-stroganoff/",
+    cuisine: "American",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "Hamburger-helper energy, homemade execution — egg noodles cook right in the beefy mushroom broth, finished with tangy sour cream. One pot, one lid, done. (~$1.40 a serving.)",
+    ingredients: [
+      i("lean ground beef", 1, "lb", "meat"),
+      i("garlic cloves", 2, "", "produce"),
+      i("butter", 2, "tbsp", "dairy"),
+      i("baby bella mushrooms (sliced)", 8, "oz", "produce"),
+      i("egg noodles (uncooked)", 8, "oz", "grain"),
+      i("beef broth", 3, "cup", "canned"),
+      i("worcestershire sauce", 1, "tbsp", "condiment"),
+      i("dijon mustard", 1, "tsp", "condiment"),
+      i("sour cream", 0.33, "cup", "dairy"),
+      i("fresh parsley", 0.25, "cup", "herb")
+    ],
+    steps: [
+      "Sauté garlic in butter 1 min, then brown the ground beef.",
+      "Add mushrooms and plenty of cracked pepper; cook until soft, about 5 min.",
+      "Stir in dry noodles, broth, Worcestershire, and Dijon; the liquid won't cover the noodles — that's fine.",
+      "Lid on, boil, then simmer ~10 min, stirring occasionally, until the noodles are tender.",
+      "Off heat, stir in sour cream and finish with parsley."
+    ]
+  },
+  {
+    id: "ouac-flank-steak",
+    title: "Grilled Flank Steak with Rosemary-Garlic Marinade",
+    creator: "Once Upon a Chef",
+    url: "https://www.onceuponachef.com/recipes/grilled-flank-steak.html",
+    cuisine: "American",
+    time: 25,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "Steak night, done lean — a blitzed rosemary-garlic marinade (adapted from Cook's Illustrated), a ripping-hot grill, and thin slices against the grain. Don't go past medium-rare on this cut.",
+    ingredients: [
+      i("flank steak", 2, "lb", "meat"),
+      i("olive oil", 0.33, "cup", "oil"),
+      i("fresh rosemary", 2, "tbsp", "herb"),
+      i("garlic cloves", 4, "", "produce"),
+      i("kosher salt", 1.5, "tsp", "spice"),
+      i("black pepper", 0.75, "tsp", "spice"),
+      i("baby potatoes", 1.5, "lb", "produce"),
+      i("asparagus", 1, "lb", "produce"),
+      i("lemon", 1, "", "produce")
+    ],
+    steps: [
+      "Blitz oil, rosemary, garlic, salt, and pepper into a marinade; poke the steak all over with a fork and coat. Refrigerate 1 hr to overnight.",
+      "Roast halved baby potatoes at 425°F ~25 min; add asparagus for the last 10.",
+      "Grill the steak over high heat, covered: 5 min, flip, 3–4 min more for medium-rare.",
+      "Rest under foil a full 15 min — this is the tenderness step.",
+      "Slice very thin against the grain and plate with the potatoes, asparagus, and lemon."
+    ]
+  },
+  {
+    id: "bb-sloppy-joes",
+    title: "Homemade Sloppy Joes",
+    creator: "Budget Bytes",
+    url: "https://www.budgetbytes.com/sloppy-joes/",
+    cuisine: "American",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "The 80s classic, minus the Manwich can — sweet-tangy pantry sauce you control completely. First sandwich lane in the library; the filling freezes great for round two.",
+    ingredients: [
+      i("lean ground beef", 1, "lb", "meat"),
+      i("yellow onion", 1, "", "produce"),
+      i("green bell pepper", 1, "", "produce"),
+      i("garlic cloves", 2, "", "produce"),
+      i("tomato sauce (15 oz)", 1, "can", "canned"),
+      i("tomato paste", 3, "tbsp", "canned"),
+      i("apple cider vinegar", 2, "tbsp", "condiment"),
+      i("brown sugar", 2, "tbsp", "baking"),
+      i("dijon mustard", 1, "tsp", "condiment"),
+      i("chili powder", 1, "tsp", "spice"),
+      i("worcestershire sauce", 1, "tsp", "condiment"),
+      i("burger buns", 4, "", "bakery"),
+      i("broccoli (for roasting)", 1, "lb", "produce"),
+      i("olive oil", 1, "tbsp", "oil")
+    ],
+    steps: [
+      "Brown the beef in oil; drain if needed. Get the broccoli roasting at 425°F.",
+      "Add diced onion, bell pepper, and garlic; sauté until soft.",
+      "Stir in tomato sauce, paste, vinegar, brown sugar, Dijon, chili powder, and Worcestershire.",
+      "Simmer 5–10 min until thick and glossy; season to taste.",
+      "Pile onto toasted buns with the roasted broccoli alongside."
+    ]
+  },
+  {
+    id: "st-french-onion-pot-roast",
+    title: "French Onion Pot Roast",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/french-onion-pot-roast/",
+    cuisine: "American",
+    time: 480,
+    servings: 6,
+    spicy: false,
+    healthy: true,
+    note: "Sunday roast meets French onion soup — deeply caramelized onions, sherry, and a brothy sauce made for mashed potatoes. Slow cooker or Dutch oven, your call.",
+    ingredients: [
+      i("beef chuck roast", 3, "lb", "meat"),
+      i("yellow onions", 3, "", "produce"),
+      i("all-purpose flour", 3, "tbsp", "baking"),
+      i("garlic powder", 1, "tsp", "spice"),
+      i("onion powder", 1, "tsp", "spice"),
+      i("dry sherry", 0.33, "cup", "condiment"),
+      i("beef bone broth", 2, "cup", "canned"),
+      i("fresh thyme", 4, "sprig", "herb"),
+      i("butter", 2, "tbsp", "dairy"),
+      i("yukon gold potatoes", 1.5, "lb", "produce"),
+      i("milk", 0.5, "cup", "dairy")
+    ],
+    steps: [
+      "Slowly caramelize the sliced onions in butter until deep gold, 20 min — don't rush this part.",
+      "Dust the roast with flour, garlic powder, onion powder, salt, and pepper; sear hard on all sides.",
+      "Deglaze with sherry, then combine roast, onions, broth, and thyme in the slow cooker.",
+      "Cook on low 7–8 hr (or Dutch oven at 375°F for 2.5 hr) until fork-tender; slice into big pieces and return to soak 30 min.",
+      "Serve over mashed potatoes with plenty of the oniony broth spooned over."
+    ]
+  },
+  // ---------- AMERICAN ----------
+  {
+    id: "bb-smash-burger",
+    title: "Smash Burgers",
+    creator: "Budget Bytes",
+    url: "https://www.budgetbytes.com/smash-burger/",
+    cuisine: "American",
+    time: 30,
+    servings: 4,
+    spicy: false,
+    healthy: false,
+    note: "THE griddle dish — the reason flat tops exist. Frozen butter grated into the beef gives crispy laced edges and a juicy center. Smash hard, flip once, cheese immediately. Stats are per single; on a cut, pair one with a big salad.",
+    ingredients: [
+      i("ground beef (80/20)", 1, "lb", "meat"),
+      i("butter (frozen)", 2, "tbsp", "dairy"),
+      i("american cheese slices", 4, "", "dairy"),
+      i("burger buns", 4, "", "bakery"),
+      i("worcestershire sauce", 1, "tsp", "condiment"),
+      i("garlic powder", 0.5, "tsp", "spice"),
+      i("smoked paprika", 0.5, "tsp", "spice"),
+      i("yellow onion (thin sliced)", 1, "", "produce"),
+      i("dill pickle chips", 0.5, "cup", "condiment"),
+      i("green leaf lettuce", 4, "leaf", "produce"),
+      i("mayo + ketchup + mustard (burger sauce)", 3, "tbsp", "condiment")
+    ],
+    steps: [
+      "Grate frozen butter into the cold beef with Worcestershire, garlic powder, paprika, salt, and pepper; divide into 4 loose balls and keep cold.",
+      "Get the griddle ripping hot; butter and toast the buns on the cooler zone.",
+      "Drop the balls on the hot zone and SMASH flat with a spatula; sear ~2 min until the edges lace and crisp.",
+      "Scrape-flip (get under the crust), smash again, top with cheese, and cook 1 min more.",
+      "Stack on buns with grilled or raw onion, pickles, lettuce, and sauce."
+    ]
+  },
+  {
+    id: "bb-philly-cheesesteak",
+    title: "Philly Cheesesteak",
+    creator: "Budget Bytes",
+    url: "https://www.budgetbytes.com/philly-cheesesteak-recipe/",
+    cuisine: "American",
+    time: 30,
+    servings: 5,
+    spicy: false,
+    healthy: false,
+    note: "The flat-top sandwich — shaved ribeye, peppers, onions, and mushrooms all working different zones, provolone melted right over the pile. Grab pre-shaved ribeye steak at the store; ~$3 a sandwich.",
+    ingredients: [
+      i("shaved ribeye steak", 14, "oz", "meat"),
+      i("green bell pepper", 1, "", "produce"),
+      i("yellow onion", 1, "", "produce"),
+      i("baby bella mushrooms (sliced)", 8, "oz", "produce"),
+      i("provolone slices", 5, "", "dairy"),
+      i("hoagie rolls", 5, "", "bakery"),
+      i("vegetable oil", 2, "tbsp", "oil"),
+      i("garlic powder", 0.5, "tsp", "spice"),
+      i("salt + black pepper", 1, "tsp", "spice")
+    ],
+    steps: [
+      "Slice peppers and onions; sauté with mushrooms on the medium zone in a little oil until soft and browned. Push to the cool side.",
+      "Crank the hot zone; sear the shaved steak in a thin layer, seasoning with salt, pepper, and garlic powder, chopping with the spatula as it browns.",
+      "Fold the veggies into the steak and divide into 5 sandwich-sized piles.",
+      "Lay provolone over each pile and let it melt (a dome or upturned pan speeds this up).",
+      "Toast the hoagies cut-side down, then scoop each pile straight in."
+    ]
+  },
+  {
+    id: "st-garlic-lime-pork-chops",
+    title: "Garlic-Lime Marinated Pork Chops",
+    creator: "Skinnytaste",
+    url: "https://www.skinnytaste.com/garlic-lime-marinated-pork-chops-6-pts/",
+    cuisine: "American",
+    time: 10,
+    servings: 4,
+    spicy: false,
+    healthy: true,
+    note: "The macro monster of the batch — Gina's published card says 224 cal and 38P per chop. Marinate 15 min to overnight, then a fast hard sear. Card is chop-only, so griddle some veg or potatoes alongside.",
+    ingredients: [
+      i("center-cut pork chops", 4, "", "meat"),
+      i("limes (juiced)", 2, "", "produce"),
+      i("garlic cloves (crushed)", 4, "", "produce"),
+      i("ground cumin", 1, "tsp", "spice"),
+      i("chili powder", 1, "tsp", "spice"),
+      i("kosher salt", 1, "tsp", "spice"),
+      i("black pepper", 0.5, "tsp", "spice"),
+      i("zucchini (for the griddle)", 2, "", "produce"),
+      i("olive oil", 1, "tbsp", "oil")
+    ],
+    steps: [
+      "Whisk lime juice, garlic, cumin, chili powder, salt, and pepper; marinate the chops 15 min to overnight.",
+      "Heat the griddle to medium-high and oil it lightly.",
+      "Sear the chops 4–5 min per side until browned and 145°F inside.",
+      "Rest 3 min (non-negotiable for juicy pork).",
+      "Meanwhile griddle sliced zucchini in the pork's fat with salt and pepper; serve alongside."
+    ]
+  },
+
+  // ---------- AMERICAN CHINESE ----------
+  {
+    id: "rte-okonomiyaki",
+    title: "Okonomiyaki (Japanese Savoury Pancake)",
+    creator: "RecipeTin Eats",
+    url: "https://japan.recipetineats.com/okonomiyaki-japanese-savoury-pancake/",
+    cuisine: "American Chinese",
+    time: 30,
+    servings: 2,
+    spicy: false,
+    healthy: false,
+    note: "From RecipeTin Japan — Yumiko, Nagi's mum. Osaka-style cabbage pancake, literally built for the teppan/flat top. Half a cabbage disappears into it. Okonomiyaki sauce + kewpie zigzag on top is the whole point.",
+    ingredients: [
+      i("green cabbage (finely shredded)", 4, "cup", "produce"),
+      i("all-purpose flour", 1, "cup", "baking"),
+      i("eggs", 2, "", "dairy"),
+      i("dashi stock (or chicken broth)", 0.75, "cup", "canned"),
+      i("thin pork belly slices (or bacon)", 6, "oz", "meat"),
+      i("green onions", 3, "", "produce"),
+      i("okonomiyaki sauce (or bbq + worcestershire)", 3, "tbsp", "condiment"),
+      i("kewpie mayo", 3, "tbsp", "condiment"),
+      i("bonito flakes (optional)", 2, "tbsp", "condiment"),
+      i("vegetable oil", 1, "tbsp", "oil")
+    ],
+    steps: [
+      "Whisk flour, eggs, and dashi into a batter; fold in the shredded cabbage and green onions until just coated.",
+      "Oil the medium zone; pile the batter into 2 thick rounds and lay pork slices over the tops.",
+      "Cook ~5 min until the bottom sets and browns, then flip confidently (spilled cabbage is part of the fun).",
+      "Cook 5–6 min more, pressing gently, until cooked through with the pork crisped underneath.",
+      "Flip pork-side up, zigzag with okonomiyaki sauce and kewpie, shower with bonito flakes."
+    ]
+  },
+
+  // ---------- MEXICAN ----------
+  {
+    id: "hbh-street-corn-chicken",
+    title: "Skillet Creamed Street Corn Chicken",
+    creator: "Half Baked Harvest",
+    url: "https://www.halfbakedharvest.com/creamed-street-corn-chicken/",
+    cuisine: "Mexican",
+    time: 40,
+    servings: 4,
+    spicy: true,
+    healthy: false,
+    note: "First elote in the library — crispy cutlets in creamed street corn with chili butter and cotija. Char the corn and sear the chicken out on the flat top; the cream sauce wants a skillet, so bring one out or finish inside. (HBH reconstruction.)",
+    ingredients: [
+      i("chicken cutlets", 1.5, "lb", "meat"),
+      i("egg", 1, "", "dairy"),
+      i("all-purpose flour", 0.5, "cup", "baking"),
+      i("corn on the cob (or 3 cups kernels)", 4, "ear", "produce"),
+      i("chili powder", 2, "tsp", "spice"),
+      i("smoked paprika", 1, "tsp", "spice"),
+      i("cayenne", 0.25, "tsp", "spice"),
+      i("garlic cloves", 3, "", "produce"),
+      i("cream cheese", 3, "oz", "dairy"),
+      i("milk", 0.5, "cup", "dairy"),
+      i("butter", 3, "tbsp", "dairy"),
+      i("cotija cheese (crumbled)", 0.5, "cup", "dairy"),
+      i("cilantro + lime", 1, "bunch", "herb")
+    ],
+    steps: [
+      "Mix the spices. Dip cutlets in egg, dredge in flour, and sear on the oiled hot zone until crispy and cooked through; char one corn cob alongside.",
+      "In a skillet, sauté the remaining corn kernels with garlic and half the spice mix.",
+      "Stir in cream cheese and milk until it turns into creamy corn sauce.",
+      "Brown the butter with the remaining spices for a quick chili butter.",
+      "Plate chicken over the creamed corn, top with charred kernels, chili butter, cotija, cilantro, and lime."
+    ]
+  },
   // ---------------------------- DESSERTS (lighter / lower-fat) ----------------------------
   {
     id: "hbh-blackberry-yogurt-bark",
@@ -3867,6 +4298,21 @@ const RECIPE_MACROS = {
   // Desserts — Batch 4
   "st-lemon-bars":         { c: 130, p: 2.5, cb: 22, f: 4.5, pro: "none", q: false, est: true  }, // per bar
   "st-baked-pears":        { c: 110.5, p: 1.5, cb: 17, f: 5, pro: "none", q: true,  est: false }, // per 1/2 pear, Skinnytaste card
+  // Dinners — Batch 5 (all beef)
+  "rte-barbacoa":              { c: 520, p: 46, cb: 40, f: 18, pro: "beef", q: false, est: true }, // 3 tacos or a bowl
+  "rte-beef-ragu":             { c: 620, p: 42, cb: 56, f: 22, pro: "beef", q: false, est: true }, // incl pappardelle
+  "dd-mongolian-beef":         { c: 560, p: 36, cb: 54, f: 18, pro: "beef", q: true,  est: true }, // incl rice
+  "rte-rendang":               { c: 640, p: 40, cb: 44, f: 34, pro: "beef", q: false, est: true }, // incl rice; coconut-rich
+  "bb-beef-stroganoff":        { c: 476, p: 22, cb: 44, f: 24, pro: "beef", q: true,  est: true }, // Budget Bytes auto-calc, per 1.5 cups
+  "ouac-flank-steak":          { c: 480, p: 42, cb: 28, f: 22, pro: "beef", q: true,  est: true }, // incl potatoes + asparagus
+  "bb-sloppy-joes":            { c: 480, p: 28, cb: 46, f: 18, pro: "beef", q: true,  est: true }, // 1 sandwich + broccoli
+  "st-french-onion-pot-roast": { c: 520, p: 44, cb: 32, f: 22, pro: "beef", q: false, est: true }, // incl mash
+  // Dinners — Batch 6 (griddle)
+  "bb-smash-burger":           { c: 516, p: 24, cb: 23, f: 36, pro: "beef",    q: true,  est: true },  // BB auto-calc, per burger
+  "bb-philly-cheesesteak":     { c: 510, p: 31, cb: 42, f: 24, pro: "beef",    q: true,  est: true },  // 1 loaded hoagie
+  "st-garlic-lime-pork-chops": { c: 224, p: 38, cb: 2,  f: 6,  pro: "pork",    q: true,  est: false }, // Gina's card, per chop only
+  "rte-okonomiyaki":           { c: 520, p: 24, cb: 42, f: 28, pro: "pork",    q: true,  est: true },  // 1 large pancake
+  "hbh-street-corn-chicken":   { c: 540, p: 42, cb: 28, f: 28, pro: "chicken", q: false, est: true },  // cutlet + creamed corn
 };
 
 // Merge macros onto each recipe. `estimated` is true unless the entry is marked
